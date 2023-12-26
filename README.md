@@ -29,9 +29,9 @@
 
 Esta Aplicação foi desenvolvida por:
 
--   [Sara Presa](GIT HUB LINK PROFILE)
--   [Dev 1](GIT HUB LINK PROFILE)
--   [Dev 1](GIT HUB LINK PROFILE)
--   [Dev 1](GIT HUB LINK PROFILE)
--   [Dev 1](GIT HUB LINK PROFILE)
--   [Dev 1](GIT HUB LINK PROFILE)
+-   [Sara Presa](https://github.com/sarapresa)
+-   [Pedro Sousa](https://github.com/pedrols74)
+-   [Dautarim](https://github.com/Dauta2002)
+-   [Diogo Lemos](https://github.com/DiogoLemos9)
+-   [João Almeida](https://github.com/joaoalmeiida40)
+-   [Nagib](https://github.com/nagib01)
