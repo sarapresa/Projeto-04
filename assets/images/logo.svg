@@ -9,13 +9,8 @@
         src: url('path/to/fonts/Lato-Regular.ttf') format('truetype');
       }
 
-      @font-face {
-        font-family: 'League Spartan';
-        font-style: normal;
-        font-weight: bold;
-        src: url('path/to/fonts/LeagueSpartan-Bold.ttf') format('truetype');
-      }
       
+
       .cls-1 {
         letter-spacing: .1em;
       }
