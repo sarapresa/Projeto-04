@@ -3,13 +3,14 @@
   <defs>
     <style>
       @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: normal;
-        src: url('path/to/fonts/Lato-Regular.ttf') format('truetype');
+        font-family: 'League Spartan', sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
       }
 
-      
+      @font-face {
+        font-family: Inter;
+        src: local('Inter'), url('/static/Inter.woff2') format('truetype');
+      }
 
       .cls-1 {
         letter-spacing: .1em;
