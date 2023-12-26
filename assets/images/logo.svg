@@ -2,16 +2,6 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 303.74 55.45">
   <defs>
     <style>
-      @font-face {
-        font-family: 'League Spartan', sans-serif;
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
-      }
-
-      @font-face {
-        font-family: Inter;
-        src: local('Inter'), url('/static/Inter.woff2') format('truetype');
-      }
-
       .cls-1 {
         letter-spacing: .1em;
       }
@@ -66,13 +56,13 @@
 
       .cls-19 {
         fill: #f15e22;
-        font-family: Lato-Regular, Lato;
+        font-family: 'Lato-Regular', Lato;
         font-size: 6.83px;
       }
 
       .cls-20 {
         fill: #00957f;
-        font-family: LeagueSpartan-Bold, 'League Spartan';
+        font-family: 'LeagueSpartan-Bold', 'League Spartan';
         font-size: 18.4px;
         font-weight: 700;
       }
