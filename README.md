@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" />
 <h1 align="center">
   <br>
   <a href=""><img src="assets/images/logo.svg" alt="Smart Savings" width="400"></a>
