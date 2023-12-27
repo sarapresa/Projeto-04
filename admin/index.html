@@ -8,8 +8,8 @@
         <title></title>
     </head>
     <body>
-        <!-- Sidebar Section -->
         <div class="container">
+            <!-- Sidebar Section -->
             <aside>
                 <div class="toggle">
                     <img class="logo" src="images/logo.png" />
@@ -132,10 +132,6 @@
                     <button id="menu-btn">
                         <span class="material-icons-sharp"> menu </span>
                     </button>
-                    <div class="dark-mode">
-                        <span class="material-icons-sharp active"> light_mode </span>
-                        <span class="material-icons-sharp"> dark_mode </span>
-                    </div>
 
                     <div class="profile">
                         <div class="info">
@@ -195,10 +191,13 @@
                             <h3>Add Reminder</h3>
                         </div>
                     </div>
+                    <label class="switch-container">
+                        <input type="checkbox" id="darkModeToggle" />
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
-
         <script src="orders.js"></script>
         <script src="index.js"></script>
         <script src="js/main.js"></script>

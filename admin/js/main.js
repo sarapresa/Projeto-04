@@ -1,7 +1,7 @@
 // Nav Bar Active
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the sidebar content
-    fetch("navbar.html")
+    fetch("sidebar.html")
         .then((response) => response.text())
         .then((data) => {
             document.getElementById("sidebar-container").innerHTML = data

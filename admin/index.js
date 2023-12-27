@@ -2,8 +2,6 @@ const sideMenu = document.querySelector("aside")
 const menuBtn = document.getElementById("menu-btn")
 const closeBtn = document.getElementById("close-btn")
 
-const darkMode = document.querySelector(".dark-mode")
-
 menuBtn.addEventListener("click", () => {
     sideMenu.style.display = "block"
 })
@@ -12,10 +10,24 @@ closeBtn.addEventListener("click", () => {
     sideMenu.style.display = "none"
 })
 
-darkMode.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode-variables")
-    darkMode.querySelector("span:nth-child(1)").classList.toggle("active")
-    darkMode.querySelector("span:nth-child(2)").classList.toggle("active")
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeToggle = document.getElementById("darkModeToggle")
+
+    const setDarkMode = (isDarkMode) => {
+        document.body.classList.toggle("dark-mode-variables", isDarkMode)
+        localStorage.setItem("darkMode", isDarkMode)
+    }
+
+    darkModeToggle.addEventListener("change", () => {
+        setDarkMode(darkModeToggle.checked)
+    })
+
+    // Initialize dark mode based on localStorage
+    const savedDarkMode = localStorage.getItem("darkMode")
+    if (savedDarkMode) {
+        setDarkMode(savedDarkMode === "true")
+        darkModeToggle.checked = savedDarkMode === "true"
+    }
 })
 
 Orders.forEach((order) => {

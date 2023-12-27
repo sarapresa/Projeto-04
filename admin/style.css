@@ -1,16 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-    --color-primary: #6c9bcf;
-    --color-danger: #ff0060;
-    --color-success: #1b9c85;
-    --color-warning: #f7d060;
-    --color-white: #fff;
+    --color-primary: #10eea8;
+    --color-danger: #dd1111;
+    --color-success: #17d2d5;
+    --color-warning: #e8d720;
     --color-info-dark: #7d8da1;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139, 200, 0.18);
+
+    --color-background: #dee0e0e0;
+    --card-bg-light: #fff;
+    --card-bg-dark: #0e1b1d;
     --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
+    --color-light: rgba(54, 221, 180, 0.244);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --form-border: #95aca7;
+    --placeholder-color: #919aa3;
+    --text: #000;
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -18,17 +23,18 @@
 
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
-
-    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 .dark-mode-variables {
     --color-background: #1d353a;
-    --color-white: #202728e9;
-    --color-dark: #edeffd;
+    --card-bg-light: #0e1b1d;
+    --card-bg-dark: #fff;
     --color-dark-variant: #a3bdcc;
-    --color-light: rgba(0, 0, 0, 0.4);
+    --color-light: rgba(52, 149, 135, 0.239);
     --box-shadow: 0 2rem 3rem var(--color-light);
+    --form-border: #677673;
+    --placeholder-color: #cbd0d4;
+    --text: #fff;
 }
 
 * {
@@ -52,12 +58,12 @@ body {
     font-size: 0.88rem;
     user-select: none;
     overflow-x: hidden;
-    color: var(--color-dark);
+    color: var(--card-bg-dark);
     background-color: var(--color-background);
 }
 
 a {
-    color: var(--color-dark);
+    color: var(--card-bg-dark);
 }
 
 img {
@@ -90,7 +96,7 @@ p {
 }
 
 b {
-    color: var(--color-dark);
+    color: var(--card-bg-dark);
 }
 
 .text-muted {
@@ -151,7 +157,7 @@ aside .toggle .close {
 aside .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     box-shadow: 0 0px 5px 0px #354b50bd;
     border-radius: 15px;
     height: 88vh;
@@ -217,7 +223,7 @@ aside .sidebar a:hover span {
 aside .sidebar .message-count {
     background-color: var(--color-danger);
     padding: 2px 6px;
-    color: var(--color-white);
+    color: var(--card-bg-light);
     font-size: 11px;
     border-radius: var(--border-radius-1);
 }
@@ -233,7 +239,7 @@ main .analyse {
 }
 
 main .analyse > div {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
@@ -310,7 +316,7 @@ main .new-users {
 }
 
 main .new-users .user-list {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
@@ -350,7 +356,7 @@ main .recent-orders h2 {
 }
 
 main .recent-orders table {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     width: 100%;
     padding: var(--card-padding);
     text-align: center;
@@ -438,7 +444,7 @@ main .recent-orders a {
     justify-content: center;
     text-align: center;
     margin-top: 1rem;
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
@@ -475,12 +481,12 @@ main .recent-orders a {
 .right-section .reminders .header span {
     padding: 10px;
     box-shadow: var(--box-shadow);
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     border-radius: 50%;
 }
 
 .right-section .reminders .notification {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -506,7 +512,7 @@ main .recent-orders a {
 
 .right-section .reminders .notification .icon {
     padding: 0.6rem;
-    color: var(--color-white);
+    color: var(--card-bg-light);
     background-color: var(--color-success);
     border-radius: 20%;
     display: flex;
@@ -517,7 +523,7 @@ main .recent-orders a {
 }
 
 .right-section .reminders .add-reminder {
-    background-color: var(--color-white);
+    background-color: var(--card-bg-light);
     border: 2px dashed var(--color-primary);
     color: var(--color-primary);
     display: flex;
@@ -601,7 +607,7 @@ main .recent-orders a {
 
     aside {
         position: fixed;
-        background-color: var(--color-white);
+        background-color: var(--card-bg-light);
         width: 15rem;
         z-index: 3;
         box-shadow: 1rem 3rem 4rem var(--color-light);
@@ -674,7 +680,7 @@ main .recent-orders a {
         top: 0;
         left: 0;
         align-items: center;
-        background-color: var(--color-white);
+        background-color: var(--card-bg-light);
         padding: 0 var(--padding-1);
         height: 4.6rem;
         width: 100%;
@@ -697,7 +703,7 @@ main .recent-orders a {
         display: inline-block;
         background-color: transparent;
         cursor: pointer;
-        color: var(--color-dark);
+        color: var(--card-bg-dark);
         position: absolute;
         left: 1rem;
     }
@@ -705,4 +711,189 @@ main .recent-orders a {
     .right-section .nav button span {
         font-size: 2rem;
     }
+}
+/* The switch - the box around the slider */
+.switch-container {
+    position: fixed;
+    width: 3.5em;
+    height: 2em;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.switch-container .slider {
+    --background: linear-gradient(to right, #090613ef, #18151f);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background);
+    transition: background-color 0.5s;
+    border-radius: 30px;
+}
+
+.switch-container .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 15px -4px 0px 15px #f8ea27;
+    background: var(--background);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.switch-container input:checked + .slider {
+    background-color: #000;
+}
+
+.switch-container input:checked + .slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 8px -4px 0px 0px #f8f8f4;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #42bb95;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 4px #42bb95;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* User Settings Container */
+.user-settigns {
+    background-color: var(--card-bg-light);
+    margin-top: 3.5rem;
+    box-shadow: 0 0px 5px 0px #354b50bd;
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+/* User Settings Title */
+main .user-settigns h2 {
+    margin-bottom: 0.8rem;
+    color: var(--text);
+}
+
+/* Hover Effect */
+main .user-settigns:hover {
+    box-shadow: 0 0 35px 0px #339576;
+}
+
+/* Paragraph Styles */
+.user-settigns p {
+    /* Customize paragraph styles within the custom section */
+    line-height: 1.5;
+    color: #555; /* Set the paragraph color */
+}
+
+/* Input and Textarea Styles */
+.user-settigns input[type="text"],
+.user-settigns input[type="email"],
+.user-settigns input[type="tel"],
+.user-settigns textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Label Styles */
+.user-settigns label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Checkbox Styles */
+.user-settigns input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Save Button Styles */
+.user-settigns .save-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-settigns .save-button:hover {
+    background-color: #45a049;
+}
+
+/* Additional Styles for Specific Sections (you can customize as needed) */
+.user-settigns .profile-information,
+.user-settigns .contact-information,
+.user-settigns .security,
+.user-settigns .privacy-settings,
+.user-settigns .notification-preferences,
+.user-settigns .preferences,
+.user-settigns .linked-accounts,
+.user-settigns .data-and-privacy,
+.user-settigns .help-and-support {
+    margin-bottom: 20px;
+}
+
+.name-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+}
+
+/* Estilo para cada campo de nome */
+.name-field {
+    flex: auto;
+    width: 100%;
+    margin: 5px 5px 5px 10px; /* Adicionando margem à direita do primeiro campo */
+    /* e à esquerda do segundo campo */
 }

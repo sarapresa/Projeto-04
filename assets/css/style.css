@@ -179,7 +179,13 @@ body.dark-mode .login-card .forgot-password-link {
         margin-bottom: 24px;
     }
 }
+.text-link {
+    color: #904a31;
+}
 
+.text-link:hover {
+    color: #ea470c;
+}
 .login-card-footer-nav a {
     font-size: 14px;
     color: var(--placeholder-color);
