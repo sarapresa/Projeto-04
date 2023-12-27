@@ -887,13 +887,14 @@ main .user-settigns:hover {
 .name-container {
     display: flex;
     width: 100%;
-    align-items: flex-end;
 }
 
-/* Estilo para cada campo de nome */
-.name-field {
+.first-name-field,
+.last-name-field {
     flex: auto;
     width: 100%;
-    margin: 5px 5px 5px 10px; /* Adicionando margem à direita do primeiro campo */
-    /* e à esquerda do segundo campo */
+}
+
+.last-name-field {
+    margin-left: 10px;
 }
