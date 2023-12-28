@@ -13,20 +13,28 @@ closeBtn.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("darkModeToggle")
 
+    // Verificar se o elemento existe antes de prosseguir
+    if (!darkModeToggle) {
+        console.error("Elemento 'darkModeToggle' não encontrado.")
+        return
+    }
+
     const setDarkMode = (isDarkMode) => {
         document.body.classList.toggle("dark-mode-variables", isDarkMode)
-        localStorage.setItem("darkMode", isDarkMode)
+        sessionStorage.setItem("darkMode", isDarkMode)
     }
 
     darkModeToggle.addEventListener("change", () => {
         setDarkMode(darkModeToggle.checked)
     })
 
-    // Initialize dark mode based on localStorage
-    const savedDarkMode = localStorage.getItem("darkMode")
-    if (savedDarkMode) {
-        setDarkMode(savedDarkMode === "true")
-        darkModeToggle.checked = savedDarkMode === "true"
+    // Inicializar o modo escuro com base no sessionStorage
+    const savedDarkMode = sessionStorage.getItem("darkMode")
+
+    if (savedDarkMode !== null) {
+        const isDarkMode = savedDarkMode === "true"
+        setDarkMode(isDarkMode)
+        darkModeToggle.checked = isDarkMode
     }
 })
 

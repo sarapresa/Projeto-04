@@ -1,4 +1,4 @@
-//  Alerta
+// Alert
 const style = document.createElement("style")
 
 style.innerHTML = `
@@ -85,16 +85,20 @@ export function showErrorAlert(message) {
     showAlert(message, "error")
 }
 
-//  Dark Mode Toogle
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("darkModeToggle")
-    const body = document.body
 
-    const savedDarkMode = localStorage.getItem("darkMode")
+    // Verificar se o elemento existe antes de prosseguir
+    if (!darkModeToggle) {
+        console.error("Elemento 'darkModeToggle' não encontrado.")
+        return
+    }
+
+    const savedDarkMode = sessionStorage.getItem("darkMode")
 
     const setDarkMode = (isDarkMode) => {
-        body.classList.toggle("dark-mode", isDarkMode)
-        localStorage.setItem("darkMode", isDarkMode)
+        document.body.classList.toggle("dark-mode", isDarkMode)
+        sessionStorage.setItem("darkMode", isDarkMode)
         darkModeToggle.checked = isDarkMode
     }
 
@@ -102,18 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
         setDarkMode(darkModeToggle.checked)
     })
 
-    window.addEventListener("beforeunload", () => {
-        localStorage.setItem("lastDarkMode", darkModeToggle.checked)
-    })
-
     // Verificar se há um estado salvo e configurar o modo escuro
     if (savedDarkMode !== null) {
         setDarkMode(savedDarkMode === "true")
-    }
-
-    // Verificar o último estado ao carregar a página
-    const lastDarkMode = localStorage.getItem("lastDarkMode")
-    if (lastDarkMode !== null) {
-        setDarkMode(lastDarkMode === "true")
     }
 })
