@@ -1,3 +1,4 @@
+// CUSTOM ALERT JS
 const style = document.createElement("style")
 
 style.innerHTML = `
@@ -81,7 +82,7 @@ export function showErrorAlert(message) {
     showAlert(message, "error")
 }
 
-// Dark Mode
+// DARK MODE TOGGLE JS
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("darkModeToggle")
 
