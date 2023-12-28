@@ -1,4 +1,4 @@
-// Alert CSS Style
+//  Alerta
 const style = document.createElement("style")
 
 style.innerHTML = `
@@ -84,3 +84,33 @@ export function showSuccessAlert(message) {
 export function showErrorAlert(message) {
     showAlert(message, "error")
 }
+
+//  Dark Mode Toogle
+document.addEventListener("DOMContentLoaded", () => {
+    const DARK_MODE_KEY = "darkMode"
+    const darkModeToggle = document.getElementById("darkModeToggle")
+
+    const getSavedDarkMode = () => {
+        return sessionStorage.getItem(DARK_MODE_KEY) === "true"
+    }
+
+    const setDarkMode = (isDarkMode) => {
+        document.body.classList.toggle("dark-mode", isDarkMode)
+        sessionStorage.setItem(DARK_MODE_KEY, isDarkMode)
+        darkModeToggle.checked = isDarkMode
+    }
+
+    const initializeDarkMode = () => {
+        const savedDarkMode = getSavedDarkMode()
+        setDarkMode(savedDarkMode)
+    }
+
+    const toggleDarkMode = () => {
+        setDarkMode(darkModeToggle.checked)
+    }
+
+    darkModeToggle.addEventListener("change", toggleDarkMode)
+
+    // Inicializa o modo escuro durante o carregamento da página
+    initializeDarkMode()
+})
