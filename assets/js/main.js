@@ -87,30 +87,33 @@ export function showErrorAlert(message) {
 
 //  Dark Mode Toogle
 document.addEventListener("DOMContentLoaded", () => {
-    const DARK_MODE_KEY = "darkMode"
     const darkModeToggle = document.getElementById("darkModeToggle")
+    const body = document.body
 
-    const getSavedDarkMode = () => {
-        return sessionStorage.getItem(DARK_MODE_KEY) === "true"
-    }
+    const savedDarkMode = localStorage.getItem("darkMode")
 
     const setDarkMode = (isDarkMode) => {
-        document.body.classList.toggle("dark-mode", isDarkMode)
-        sessionStorage.setItem(DARK_MODE_KEY, isDarkMode)
+        body.classList.toggle("dark-mode", isDarkMode)
+        localStorage.setItem("darkMode", isDarkMode)
         darkModeToggle.checked = isDarkMode
     }
 
-    const initializeDarkMode = () => {
-        const savedDarkMode = getSavedDarkMode()
-        setDarkMode(savedDarkMode)
-    }
-
-    const toggleDarkMode = () => {
+    darkModeToggle.addEventListener("change", () => {
         setDarkMode(darkModeToggle.checked)
+    })
+
+    window.addEventListener("beforeunload", () => {
+        localStorage.setItem("lastDarkMode", darkModeToggle.checked)
+    })
+
+    // Verificar se há um estado salvo e configurar o modo escuro
+    if (savedDarkMode !== null) {
+        setDarkMode(savedDarkMode === "true")
     }
 
-    darkModeToggle.addEventListener("change", toggleDarkMode)
-
-    // Inicializa o modo escuro durante o carregamento da página
-    initializeDarkMode()
+    // Verificar o último estado ao carregar a página
+    const lastDarkMode = localStorage.getItem("lastDarkMode")
+    if (lastDarkMode !== null) {
+        setDarkMode(lastDarkMode === "true")
+    }
 })
