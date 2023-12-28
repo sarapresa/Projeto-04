@@ -15,135 +15,107 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const db = getDatabase()
 const auth = getAuth(app)
+const db = getDatabase(app)
 const dbref = ref(db)
 
-// Constants for selectors
 const RegisterForm = document.getElementById("RegisterForm")
 const LoginForm = document.getElementById("LoginForm")
 const ResetForm = document.getElementById("ResetForm")
 
-// Function to handle registration
 const handleRegistration = async (evt) => {
     evt.preventDefault()
 
-    let username = document.getElementById("username")
-    let firstname = document.getElementById("fname")
-    let lastname = document.getElementById("lname")
-    let email = document.getElementById("email")
-    let password = document.getElementById("password")
+    const { username, fname, lname, email, password } = evt.target.elements
 
     try {
         const credentials = await createUserWithEmailAndPassword(auth, email.value, password.value)
-        console.log(credentials)
 
-        await set(ref(db, "users/" + credentials.user.uid), {
-            firstname: firstname.value,
-            lastname: lastname.value,
+        await set(ref(db, `users/${credentials.user.uid}`), {
+            firstname: fname.value,
+            lastname: lname.value,
             username: username.value,
             email: email.value,
         })
 
-        showAlert("A sua conta foi criada com sucesso!", "success")
+        showAlert("Your account has been successfully created!", "success")
+
         setTimeout(() => {
             window.location.href = "index.html"
         }, 1000)
     } catch (error) {
-        handleRegistrationError(error)
+        handleAuthError(error)
         console.error(error)
     }
 }
 
-// Function to handle login
 const handleLogin = async (evt) => {
     evt.preventDefault()
 
-    let email = document.getElementById("email")
-    let password = document.getElementById("password")
+    const { email, password } = evt.target.elements
 
     try {
         const credentials = await signInWithEmailAndPassword(auth, email.value, password.value)
-        console.log(credentials)
+        const snapshot = await get(child(dbref, `users/${credentials.user.uid}`))
 
-        const snapshot = await get(child(dbref, "users/" + credentials.user.uid))
+        if (snapshot.exists()) {
+            const userInfo = {
+                username: snapshot.val().username,
+                firstname: snapshot.val().firstname,
+                lastname: snapshot.val().lastname,
+            }
 
-        if (snapshot.exists) {
-            sessionStorage.setItem(
-                "user-info",
-                JSON.stringify({
-                    username: snapshot.val().username,
-                    firstname: snapshot.val().firstname,
-                    lastname: snapshot.val().lastname,
-                })
-            )
+            sessionStorage.setItem("user-info", JSON.stringify(userInfo))
             sessionStorage.setItem("user-creds", JSON.stringify(credentials.user))
             window.location.href = "./admin/index.html"
         }
     } catch (error) {
-        handleLoginError(error)
+        handleAuthError(error)
         console.error(error)
     }
 }
 
-// Function to handle reset password
 const handleReset = async (evt) => {
     evt.preventDefault()
 
-    let email = document.getElementById("email")
+    const { email } = evt.target.elements
 
     try {
-        const credentials = await sendPasswordResetEmail(auth, email.value)
-        console.log(credentials)
-        showAlert("O email de reset foi enviado!", "success")
+        await sendPasswordResetEmail(auth, email.value)
+        showAlert("The password reset link has been sent!", "success")
         setTimeout(() => {
             window.location.href = "index.html"
         }, 1000)
     } catch (error) {
-        handleResetError(error)
+        handleAuthError(error)
         console.error(error)
     }
 }
 
-// Function to handle registration errors
-const handleRegistrationError = (error) => {
-    var errorCode = error.code
-    if (errorCode === "auth/email-already-in-use") {
-        showAlert("O email que introduziu já se encontra em uso", "error")
-    } else if (errorCode === "auth/invalid-email") {
-        showAlert("Introduza um email válido", "error")
-    } else if (errorCode === "auth/weak-password") {
-        showAlert("A password deve ter pelo menos 6 caracteres", "error")
-    } else {
-        showAlert(error.message, "error")
+const handleAuthError = (error) => {
+    const errorCode = error.code
+
+    switch (errorCode) {
+        case "auth/email-already-in-use":
+            showAlert("The email you entered is already in use", "error")
+            break
+        case "auth/invalid-email":
+            showAlert("Please enter a valid email", "error")
+            break
+        case "auth/weak-password":
+            showAlert("The password must be at least 6 characters long", "error")
+            break
+        case "auth/invalid-credential":
+            showAlert("Your credentials are not valid", "error")
+            break
+        case "auth/missing-email":
+            showAlert("Please enter an email", "error")
+            break
+        default:
+            showAlert(error.message, "error")
     }
 }
 
-// Function to handle login errors
-const handleLoginError = (error) => {
-    var errorCode = error.code
-    if (errorCode === "auth/invalid-email") {
-        showAlert("Introduza um email válido", "error")
-    } else if (errorCode === "auth/invalid-credential") {
-        showAlert("As suas credenciais não são válidas", "error")
-    } else {
-        showAlert(error.message, "error")
-    }
-}
-
-// Function to handle login errors
-const handleResetError = (error) => {
-    var errorCode = error.code
-    if (errorCode === "auth/missing-email") {
-        showAlert("Introduza um email", "error")
-    } else if (errorCode === "undidfined") {
-        showAlert("O email que introduziu não existe ou foi apagado", "error")
-    } else {
-        showAlert(error.message, "error")
-    }
-}
-
-// Event listeners
 if (RegisterForm) {
     RegisterForm.addEventListener("submit", handleRegistration)
 }
