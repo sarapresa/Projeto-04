@@ -1,4 +1,3 @@
-// Alert
 const style = document.createElement("style")
 
 style.innerHTML = `
@@ -33,47 +32,44 @@ style.innerHTML = `
     100% {opacity: 0;}
 }
 `
+
 document.head.appendChild(style)
 
-// Show Alert Message
 export function showAlert(message, type) {
-    // Create a new div element
     var alertDiv = document.createElement("div")
-
-    // Add classes to the div
-    alertDiv.classList.add(type + "-alert")
-
-    // Add the message to the div
+    alertDiv.classList.toggle(type + "-alert", true)
     alertDiv.textContent = message
 
-    // Add a close button
     let closeButton = document.createElement("span")
-    closeButton.innerHTML = "×"
+    closeButton.textContent = "×"
     closeButton.style.float = "right"
     closeButton.style.cursor = "pointer"
     closeButton.style.marginLeft = "15px"
     closeButton.style.fontSize = "22px"
     closeButton.style.lineHeight = "20px"
     closeButton.style.color = "white"
-    closeButton.onclick = function () {
-        alertDiv.style.animation = "fadeOut 0.5s forwards"
-    }
+    closeButton.addEventListener("click", function () {
+        if (!alertDiv.style.animation) {
+            alertDiv.style.animation = "fadeOut 0.5s forwards"
+        }
+    })
+
     alertDiv.appendChild(closeButton)
 
-    // Append the div to the body
     document.body.appendChild(alertDiv)
 
-    // Fade in the alert
     setTimeout(function () {
         alertDiv.style.animation = "fadeIn 0.5s forwards"
     }, 0)
 
-    // Fade out and remove the alert after 3 seconds
+    alertDiv.addEventListener("animationend", function () {
+        if (alertDiv.style.animation.includes("fadeOut")) {
+            document.body.removeChild(alertDiv)
+        }
+    })
+
     setTimeout(function () {
         alertDiv.style.animation = "fadeOut 0.5s forwards"
-        setTimeout(function () {
-            document.body.removeChild(alertDiv)
-        }, 300)
     }, 2000)
 }
 
@@ -85,6 +81,7 @@ export function showErrorAlert(message) {
     showAlert(message, "error")
 }
 
+// Dark Mode
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("darkModeToggle")
 
