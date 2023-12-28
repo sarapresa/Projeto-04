@@ -198,33 +198,9 @@
                 </div>
             </div>
         </div>
-        <script src="orders.js"></script>
-        <script src="index.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            let userCreds = JSON.parse(sessionStorage.getItem("user-creds"))
-            let userInfo = JSON.parse(sessionStorage.getItem("user-info"))
-
-            let name = document.getElementById("name")
-            let signoutBtn = document.getElementById("signoutbutton")
-
-            let Signout = () => {
-                sessionStorage.removeItem("user-creds")
-                sessionStorage.removeItem("user-info")
-                window.location.href = "../../index.html"
-            }
-
-            let CheckCred = () => {
-                if (!sessionStorage.getItem("user-creds")) window.location.href = "../../index.html"
-                else {
-                    name.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
-                    document.title = `Smart Savings | ${userInfo.firstname + " " + userInfo.lastname}`
-                }
-            }
-
-            window.addEventListener("load", CheckCred)
-            signoutBtn.addEventListener("click", Signout)
-        </script>
+        <script src="js/orders.js"></script>
+        <script type="module" src="js/firebase.js"></script>
         <script>
             window.currentPageId = "dashboard-link"
         </script>

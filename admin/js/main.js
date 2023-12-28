@@ -3,8 +3,6 @@ const sideMenu = document.querySelector("aside")
 const menuBtn = document.getElementById("menu-btn")
 const closeBtn = document.getElementById("close-btn")
 
-const currentPageId = window.currentPageId
-
 // Nav Bar Active
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the sidebar content
@@ -13,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
             document.getElementById("sidebar-container").innerHTML = data
 
-            var activeLink = document.getElementById(currentPageId)
+            const currentPageId = window.currentPageId
+
+            const activeLink = document.getElementById(currentPageId)
+
             if (activeLink) {
                 activeLink.classList.add("active")
             }
