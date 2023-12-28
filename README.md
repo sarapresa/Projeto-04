@@ -17,13 +17,6 @@
 -   Registo e Login de Utilizadores.
 -   Light and Dark mode.
 -   Calculadora de Juro Composto.
--   ADD MORE HERE.
--   ADD MORE HERE.
--   ADD MORE HERE.
--   ADD MORE HERE.
--   ADD MORE HERE.
--   ADD MORE HERE.
--   ADD MORE HERE.
 
 ## Creditos
 
