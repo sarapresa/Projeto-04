@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import { getDatabase, set, ref, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
 import { showAlert } from "./main.js"
 
 const firebaseConfig = {
@@ -22,6 +22,7 @@ const dbref = ref(db)
 // Constants for selectors
 const RegisterForm = document.getElementById("RegisterForm")
 const LoginForm = document.getElementById("LoginForm")
+const ResetForm = document.getElementById("ResetForm")
 
 // Function to handle registration
 const handleRegistration = async (evt) => {
@@ -85,6 +86,25 @@ const handleLogin = async (evt) => {
     }
 }
 
+// Function to handle reset password
+const handleReset = async (evt) => {
+    evt.preventDefault()
+
+    let email = document.getElementById("email")
+
+    try {
+        const credentials = await sendPasswordResetEmail(auth, email.value)
+        console.log(credentials)
+        showAlert("O email de reset foi enviado!", "success")
+        setTimeout(() => {
+            window.location.href = "index.html"
+        }, 1000)
+    } catch (error) {
+        handleResetError(error)
+        console.error(error)
+    }
+}
+
 // Function to handle registration errors
 const handleRegistrationError = (error) => {
     var errorCode = error.code
@@ -111,6 +131,18 @@ const handleLoginError = (error) => {
     }
 }
 
+// Function to handle login errors
+const handleResetError = (error) => {
+    var errorCode = error.code
+    if (errorCode === "auth/missing-email") {
+        showAlert("Introduza um email", "error")
+    } else if (errorCode === "undidfined") {
+        showAlert("O email que introduziu não existe ou foi apagado", "error")
+    } else {
+        showAlert(error.message, "error")
+    }
+}
+
 // Event listeners
 if (RegisterForm) {
     RegisterForm.addEventListener("submit", handleRegistration)
@@ -118,4 +150,8 @@ if (RegisterForm) {
 
 if (LoginForm) {
     LoginForm.addEventListener("submit", handleLogin)
+}
+
+if (ResetForm) {
+    ResetForm.addEventListener("submit", handleReset)
 }
