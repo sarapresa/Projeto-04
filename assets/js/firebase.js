@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import { getDatabase, set, ref, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
-import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"
 import { showAlert } from "./main.js"
 
 const firebaseConfig = {
@@ -17,8 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
-const storage = getStorage(app)
-const storageRef = storage.ref()
 const db = getDatabase(app)
 const dbref = ref(db)
 
