@@ -8,6 +8,10 @@ if (userInfoJSON) {
 }
 
 const name = document.getElementById("name")
+const fname = document.getElementById("fname")
+const lname = document.getElementById("lname")
+const mail = document.getElementById("mail")
+const username = document.getElementById("username")
 const signoutBtn = document.getElementById("signoutbutton")
 
 const Signout = () => {
@@ -22,6 +26,10 @@ const CheckCred = () => {
     } else {
         name.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
         document.title = `Smart Savings | ${userInfo.firstname + " " + userInfo.lastname}`
+        mail.value = userCreds.email
+        fname.value = userInfo.firstname
+        lname.value = userInfo.lastname
+        username.value = userInfo.username
     }
 }
 

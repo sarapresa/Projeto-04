@@ -33,18 +33,15 @@
                         <div class="name-container">
                             <div class="first-name-field">
                                 <label for="first-name">First Name:</label>
-                                <input type="text" id="first-name" placeholder="Enter your first name" />
+                                <input type="text" id="fname" placeholder="Enter your first name" />
                             </div>
                             <div class="last-name-field">
                                 <label for="last-name">Last Name:</label>
-                                <input type="text" id="last-name" placeholder="Enter your last name" />
+                                <input type="text" id="lname" placeholder="Enter your last name" />
                             </div>
                         </div>
                         <label for="username">Username:</label>
                         <input type="text" id="username" placeholder="Enter your username" />
-
-                        <label for="profile-picture">Profile Picture:</label>
-                        <input type="file" id="profile-picture" />
 
                         <label for="bio">Bio/About Me:</label>
                         <textarea id="bio" placeholder="Tell us about yourself"></textarea>
@@ -53,14 +50,16 @@
                     <!-- Contact Information -->
                     <div class="contact-information">
                         <label for="email">Email Address:</label>
-                        <input type="email" id="email" placeholder="Enter your email" />
+                        <input type="email" id="mail" placeholder="Enter your email" />
 
                         <label for="phone">Phone Number:</label>
                         <input type="tel" id="phone" placeholder="Enter your phone number" />
                     </div>
 
                     <!-- Rest of the sections remain unchanged -->
-
+                    <label for="profile-picture">Profile Picture:</label>
+                    <input type="file" id="fileInput" onchange="" accept="image/png, image/jpeg" />
+                    <button class="save-button" onclick="">Upload Image</button>
                     <!-- Save/Update Button -->
                     <button class="save-button">Save Changes</button>
                 </div>
@@ -80,7 +79,7 @@
                             <small class="text-muted">Admin</small>
                         </div>
                         <div class="profile-photo">
-                            <img src="images/profile-1.jpeg" />
+                            <img src="images/profile-1.jpeg" id="profilePicture" alt="Profile Picture" />
                         </div>
                     </div>
                 </div>
