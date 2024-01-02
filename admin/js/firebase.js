@@ -9,6 +9,7 @@ if (userInfoJSON) {
 const name = document.getElementById("name")
 const fname = document.getElementById("fname")
 const lname = document.getElementById("lname")
+const bigName = document.getElementById("bigName")
 const mail = document.getElementById("mail")
 const username = document.getElementById("username")
 const signoutBtn = document.getElementById("signoutbutton")
@@ -24,6 +25,7 @@ const CheckCred = () => {
         window.location.href = "../../index.html"
     } else {
         name.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
+        bigName.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
         document.title = `Smart Savings | ${userInfo.firstname + " " + userInfo.lastname}`
         mail.value = userCreds.email
         fname.value = userInfo.firstname
