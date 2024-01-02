@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Investimento</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="simulator">
+  <h2>Simulador de Investimento</h2>
+  <label for="initialAmount">Valor Inicial:</label>
+  <input type="number" id="initialAmount" placeholder= "" required>
+
+  <label for="annualInterestRate">Taxa de Juros Anual (%):</label>
+  <input type="number" id="annualInterestRate" placeholder= "" required>
+
+  <label for="monthlyContributions">Reforços Mensais:</label>
+  <input type="number" id="monthlyContributions" placeholder= >
+
+  <button onclick="simulateInvestment()">Simular</button>
+  <br><br>
+
+ <table id="resultTable">
+    <thead>
+      <tr>
+        <th>Mês</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
