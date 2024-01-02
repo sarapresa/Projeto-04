@@ -159,6 +159,7 @@ aside .sidebar {
     box-shadow: 0 0px 5px 0px #354b50bd;
     border-radius: 15px;
     height: 88vh;
+    width: 18vh;
     position: relative;
     top: 1.5rem;
     transition: all 0.3s ease;

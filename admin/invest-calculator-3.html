@@ -25,8 +25,16 @@
             <main>
                 <div class="user-settigns">
                     <h2>Invest Calculator 3 TITLE</h2>
-                    <p></p>
-                    <!-- Add more content as needed -->
+                    <p>descricao</p>
+                    <h2>Tempo Necessário para Atingir um Objetivo</h2>
+                    <label for="goal">Objetivo Financeiro:</label>
+                    <input type="number" id="goal3" placeholder="Digite o objetivo financeiro" />
+                    <label for="pv">Valor Inicial (PV):</label>
+                    <input type="number" id="pv3" placeholder="Digite o valor inicial" />
+                    <label for="rate">Taxa de Juros Anual (%):</label>
+                    <input type="number" id="rate3" placeholder="Digite a taxa de juros" />
+                    <button onclick="thirdCalculator()">Calcular</button>
+                    <p id="result3">O resultado será exibido aqui.</p>
                 </div>
             </main>
             <!-- End of Main Content -->
@@ -103,11 +111,12 @@
                 </div>
             </div>
         </div>
+        <script src="js/calculators.js"></script>
         <script src="js/orders.js"></script>
         <script src="js/main.js"></script>
         <script type="module" src="js/firebase.js"></script>
         <script>
-            window.currentPageId = "user-settings-link"
+            window.currentPageId = "calculator-3-link"
         </script>
     </body>
 </html>
