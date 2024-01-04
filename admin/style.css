@@ -921,8 +921,51 @@ input[type="number"] {
     padding: 10px;
     padding-left: 62px;
     padding-right: 62px;
+    font-size: larger;
 }
 
 .cal1-resultado {
+    font-size: larger;
+}
+
+.cal1-p {
+    font-size: larger;
+}
+
+.cal2-p {
+    font-size: larger;
+}
+
+.cal2-button {
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 100px;
+    font-size: large;
+}
+
+.cal-initiala {
+    font-size: large;
+}
+
+.cal-initialb {
+    padding: 5px;
+}
+
+.cal3-button {
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: 100px;
+    font-size: large;
+}
+
+.cal3-p {
     font-size: larger;
 }

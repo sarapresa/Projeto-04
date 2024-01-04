@@ -24,27 +24,24 @@
             <!-- Main Content -->
             <main>
                 <div class="user-settigns">
-                    <h2>Investment simulator with monthly reinforcements</h2>
-                    <p>It is a simulator available that helps the user to configure some parameters and determine the time when they should leave their investment to reach the final objective.</p>
+                    <h1>Investment simulator with monthly reinforcements</h1>
+                    <p class="cal2-p">It is a simulator available that helps the user to configure some parameters and determine the time when they should leave their investment to reach the final objective.</p>
                     <div id="simulator">
                         <h2>Simulador de Investimento</h2>
-                        <label for="initialAmount">Valor Inicial:</label>
-                        <input type="number" id="initialAmount" placeholder="" required />
+                        <label class="cal-initiala" for="initialAmount">Valor Inicial: <input class="cal-initialb" type="number" id="initialAmount" placeholder="" required /></label>
 
-                        <label for="annualInterestRate">Taxa de Juros Anual (%):</label>
-                        <input type="number" id="annualInterestRate" placeholder="" required />
+                        <label class="cal-initiala" for="annualInterestRate">Taxa de Juros Anual (%): <input class="cal-initialb" type="number" id="annualInterestRate" placeholder="" required /></label>
 
-                        <label for="monthlyContributions">Reforços Mensais:</label>
-                        <input type="number" id="monthlyContributions" placeholder= >
+                        <label class="cal-initiala" for="monthlyContributions">Reforços Mensais: <input class="cal-initialb" type="number" id="monthlyContributions" placeholder= ></label>
 
-                        <button onclick="secondCalculator()">Simular</button>
+                        <button class="cal2-button" onclick="secondCalculator()">Simular</button>
                         <br /><br />
 
                         <table id="resultTable">
                             <thead>
                                 <tr>
-                                    <th>Mês</th>
-                                    <th>Saldo</th>
+                                    <th class="cal-initiala">Mês </th>
+                                    <th class="cal-initiala">| Saldo</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
