@@ -903,3 +903,26 @@ main .user-settigns:hover {
 .last-name-field {
     margin-left: 10px;
 }
+
+.cal1 {
+    margin-left: 40%;
+}
+
+input[type="number"] {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.button-cal1 {
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    padding-left: 62px;
+    padding-right: 62px;
+}
+
+.cal1-resultado {
+    font-size: larger;
+}
