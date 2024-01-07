@@ -370,7 +370,7 @@ main .recent-orders table:hover {
 }
 
 main table tbody td {
-    height: 2.8rem;
+    height: 3rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
 }
@@ -968,4 +968,254 @@ input[type="number"] {
 
 .cal3-p {
     font-size: larger;
+}
+
+.table-th-1 {
+    background-color: var(--cor-primaria);
+    width: 5%;
+    border-top-left-radius: var(--radious-2);
+}
+.table-th-2,
+.table-th-3,
+.table-th-4,
+.table-th-5 {
+    width: 22.5%;
+    background-color: var(--cor-primaria);
+}
+
+.table-th-5 {
+    border-top-right-radius: var(--radious-2);
+}
+
+.resultados {
+    width: 67%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 3rem;
+}
+
+.resultados h2 {
+    font-size: 1.2rem;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.card {
+    height: 5rem;
+    width: 30%;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.card h4 {
+    font-weight: 400;
+}
+
+.valor-resultado b {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.listaResultado {
+    margin: 3rem 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.listaResultado th {
+    font-size: 1.2rem;
+    height: 3rem;
+    color: white;
+    padding: 5px;
+}
+.listaResultado td {
+    border-collapse: collapse;
+    font-size: 1.2rem;
+    height: 3rem;
+}
+.listaResultado tr:nth-child(odd) {
+    background-color: rgba(24, 24, 24, 0.05);
+}
+.listaResultado tr:last-child td:nth-child(1) {
+    border-bottom-left-radius: var(--radious-2);
+}
+.listaResultado tr:last-child td:nth-child(5) {
+    border-bottom-right-radius: var(--radious-2);
+}
+
+.conteiner {
+    width: 95%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.layout {
+    max-width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: row;
+}
+
+.entradas {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: var(--cor-sections);
+    padding: 3rem;
+    border-radius: var(--radious-2);
+    box-shadow: var(--shadow);
+}
+
+.entradas input {
+    text-align: center;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    border: 1px solid var(--input-color);
+    width: 85%;
+    border-top-right-radius: var(--radious-1);
+    border-bottom-right-radius: var(--radious-1);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.campo {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.prefixo {
+    width: 15%;
+    text-align: center;
+    background-color: var(--input-color);
+    height: 2.5rem;
+    border-top-left-radius: var(--radious-1);
+    border-bottom-left-radius: var(--radious-1);
+}
+
+.prefixo b {
+    position: relative;
+    top: 0.5rem;
+    font-weight: 400;
+}
+
+.botao {
+    background-color: var(--cor-primaria);
+    border: none;
+    color: white;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: var(--radious-1);
+    position: relative;
+    z-index: 0;
+    transition: 0.3s;
+}
+
+.botao2 {
+    background-color: var(--cor-primaria);
+    border: none;
+    color: white;
+    height: 3rem;
+    width: 103px;
+    margin-top: 1rem;
+    border-radius: var(--radious-1);
+    position: relative;
+    z-index: 0;
+    transition: 0.3s;
+}
+
+.botao2:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.botao2:hover b {
+    letter-spacing: 0.2rem;
+}
+
+.botao:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.botao:hover b {
+    letter-spacing: 0.2rem;
+}
+
+/* .calcular::after {
+    content: "";
+    height: 3rem;
+    background-color: var(--cor-secundaria);
+    position: absolute;
+    width: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transition: .15s;
+}
+
+.calcular:hover::after {
+    width: 20rem;
+} */
+
+.botao b {
+    z-index: 2;
+    position: relative;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.botao2 b {
+    z-index: 2;
+    position: relative;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.resultados {
+    width: 67%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--cor-sections);
+    border-radius: var(--radious-2);
+    box-shadow: var(--shadow);
+    padding: 3rem;
+}
+
+.resultados h2 {
+    font-size: 1.2rem;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
