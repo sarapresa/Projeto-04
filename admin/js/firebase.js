@@ -17,7 +17,7 @@ const signoutBtn = document.getElementById("signoutbutton")
 const Signout = () => {
     sessionStorage.removeItem("user-creds")
     sessionStorage.removeItem("user-info")
-    window.location.href = "../../index.html"
+    window.location.href = "../index.html"
 }
 
 const CheckCred = () => {

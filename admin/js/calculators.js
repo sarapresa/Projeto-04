@@ -1,13 +1,13 @@
 function firstCalculator() {
-    var principal = parseFloat(document.getElementById("principal").value)
-    var taxa = parseFloat(document.getElementById("taxa").value) / 100
-    var tempo = parseFloat(document.getElementById("tempo").value)
+    const principal = parseFloat(document.getElementById("principal").value)
+    const taxa = parseFloat(document.getElementById("taxa").value) / 100
+    const tempo = parseFloat(document.getElementById("tempo").value)
 
-    var n = 1
+    let n = 1
 
-    var montanteFinal = principal * Math.pow(1 + taxa / n, n * tempo)
+    const montanteFinal = principal * Math.pow(1 + taxa / n, n * tempo)
 
-    document.getElementById("resultado").innerHTML = "O montante final é: €" + montanteFinal.toFixed(2)
+    document.getElementById("resultado").innerHTML = "O montante final é de " + montanteFinal.toFixed(2) + " €"
 }
 
 function secondCalculator() {
@@ -30,10 +30,10 @@ function secondCalculator() {
 }
 
 function thirdCalculator() {
-    var goal = parseFloat(document.getElementById("goal3").value)
-    var pv = parseFloat(document.getElementById("pv3").value)
-    var rate = parseFloat(document.getElementById("rate3").value)
+    const goal = parseFloat(document.getElementById("goal3").value)
+    const pv = parseFloat(document.getElementById("pv3").value)
+    const rate = parseFloat(document.getElementById("rate3").value)
 
-    var time = Math.log(goal / pv) / Math.log(1 + rate / 100)
+    const time = Math.log(goal / pv) / Math.log(1 + rate / 100)
     document.getElementById("result3").innerHTML = "Serão necessários aproximadamente " + time.toFixed(2) + " anos para atingir o objetivo."
 }
