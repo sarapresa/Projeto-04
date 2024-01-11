@@ -1125,6 +1125,7 @@ label {
     font-weight: 400;
 }
 
+
 .botao {
     background-color: var(--cor-primaria);
     border: none;
@@ -1182,11 +1183,21 @@ label {
     width: 20rem;
 } */
 
+#reset b{
+    background-color: red;
+}
+
+
 .botao b {
     z-index: 2;
     position: relative;
     font-size: 1.2rem;
     transition: 0.3s;
+    padding: 13px 20px 12px;
+    background-color: green;
+    border-radius: 15px;
+    font-size: 17px;
+    color: white;
 }
 
 .botao2 b {
@@ -1194,6 +1205,11 @@ label {
     position: relative;
     font-size: 1.2rem;
     transition: 0.3s;
+    padding: 15px 20px 12px ;
+    background-color: green;
+    border-radius: 15px;
+    font-size: 17px;
+    color: white;
 }
 
 .resultados {
