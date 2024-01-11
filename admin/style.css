@@ -21,9 +21,11 @@
     --border-radius-2: 1.2rem;
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
+    --button-hover-text: #42bb95;
 }
 
 .dark-mode-variables {
+    --button-hover-text: #42bb95;
     --color-background: #1d353a;
     --card-bg-light: #0e1b1d;
     --card-bg-dark: #fff;
@@ -837,43 +839,54 @@ main .user-settigns:hover {
 .user-settigns input[type="tel"],
 .user-settigns textarea {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2.5px solid #10eea8;
+    border: 2px solid #677673;
     border-radius: 15px;
+    background-color: solid var(--form-border-dark);
+    color: var(--form-border-dark);
+    box-shadow: rgba(70, 164, 153, 0.5);
+}
+.user-settigns input[type="text"]:focus,
+.user-settigns input[type="email"]:focus,
+.user-settigns input[type="tel"]:focus,
+.user-settigns textarea:focus {
+    outline: none;
+    border-color: #42bb95;
+    box-shadow: 0 0 10px #42bb95;
 }
 
 /* Label Styles */
 .user-settigns label {
-    margin-top: 10px;
-    display: block;
-    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    display: flex;
     background-color: solid var(--form-border-dark);
     color: var(--text-dark);
-    border-radius: 15px;
-    border: 2px solid var(--form-border-dark);
-    padding: 15px 25px;
-}
-
-/* Checkbox Styles */
-.user-settigns input[type="checkbox"] {
-    margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    font-size: 15px;
 }
 
 /* Save Button Styles */
 .user-settigns .save-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 13px 20px 12px;
+    background-color: #42bb95;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
 }
 
 .user-settigns .save-button:hover {
-    background-color: #45a049;
+    cursor: pointer;
+    border: 1.5px solid var(--button-hover-text);
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
 }
 
 /* Additional Styles for Specific Sections (you can customize as needed) */
@@ -1125,7 +1138,6 @@ label {
     font-weight: 400;
 }
 
-
 .botao {
     background-color: var(--cor-primaria);
     border: none;
@@ -1183,10 +1195,9 @@ label {
     width: 20rem;
 } */
 
-#reset b{
+#reset b {
     background-color: red;
 }
-
 
 .botao b {
     z-index: 2;
@@ -1205,7 +1216,7 @@ label {
     position: relative;
     font-size: 1.2rem;
     transition: 0.3s;
-    padding: 15px 20px 12px ;
+    padding: 15px 20px 12px;
     background-color: green;
     border-radius: 15px;
     font-size: 17px;
