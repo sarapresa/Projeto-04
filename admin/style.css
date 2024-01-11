@@ -923,7 +923,7 @@ main .user-settigns:hover {
     float: right;
 }
 
-#exportOptions {
+#export {
     padding: 12px 20px 12px;
     margin-right: 5px;
     font-size: 16px;
@@ -934,7 +934,7 @@ main .user-settigns:hover {
     cursor: pointer;
 }
 
-#exportOptions option {
+#export option {
     padding: 15px;
     font-size: 14px;
     background-color: var(--button-hover-bg);
@@ -942,7 +942,7 @@ main .user-settigns:hover {
 }
 
 /* Style the select when it's focused */
-#exportOptions:focus {
+#export:focus {
     outline: none;
     border-color: #42bb95;
 }
@@ -975,7 +975,7 @@ main .user-settigns:hover {
     margin-left: 10px;
 }
 
-.cards {
+.graphContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -983,7 +983,8 @@ main .user-settigns:hover {
     margin-top: 1rem;
 }
 
-.card {
+.graphCard {
+    margin-bottom: 20px;
     height: 5rem;
     width: 30%;
     text-align: center;
@@ -995,7 +996,7 @@ main .user-settigns:hover {
     font-weight: 700;
 }
 
-.listaResultado {
+.tableList {
     margin: 3rem 0;
     width: 100%;
     padding: 0rem;
@@ -1017,12 +1018,4 @@ input[type="number"] {
 label {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-}
-
-.cards {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1rem;
 }

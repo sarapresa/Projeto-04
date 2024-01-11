@@ -37,24 +37,25 @@
                             <section>
                                 <div class="user-settings">
                                     <div class="profile-information">
-                                        <label for="initialValue">Valor inicial</label>
+                                        <label for="initialValue">Initial Value</label>
                                         <input type="number" name="initialValue" id="initialValue" placeholder="0.00" />
 
-                                        <label for="monthlyInvestment">Investimento mensal</label>
+                                        <label for="monthlyInvestment">Monthly Investment</label>
                                         <input type="number" name="monthlyInvestment" id="monthlyInvestment" placeholder="0.00" />
 
-                                        <label for="annualInterest">Taxa de juros mensal</label>
+                                        <label for="annualInterest">Monthly Interest Rate</label>
                                         <input type="number" name="annualInterest" id="annualInterest" placeholder="0%" />
 
                                         <label for="months">Months</label>
                                         <input type="number" name="months" id="months" placeholder="0" />
+                                        
                                         <label for="years">Years</label>
                                         <input type="number" name="years" id="years" placeholder="0" />
                                     </div>
                                     <button class="calculate" id="calculate">CALCULATE</button>
                                     <button class="reset" id="reset">RESET</button>
                                     <div class="export">
-                                        <select id="exportOptions">
+                                        <select id="export">
                                             <option value="pdf">PDF</option>
                                             <option value="csv">CSV</option>
                                             <option value="json">JSON</option>
@@ -63,28 +64,28 @@
                                     </div>
                                 </div>
                                 <br>
-                                    <div class="cards">
-                                        <div class="card">
+                                    <div class="graphContainer">
+                                        <div class="graphCard">
                                             <h4>Amount</h4>
                                             <div class="result-value"><a id="totalValue">0.00 €</a></div>
                                         </div>
-                                        <div class="card">
+                                        <div class="graphCard">
                                             <h4>Amount Invested</h4>
                                             <div class="result-value"><a id="investedValue">0.00 €</a></div>
                                         </div>
-                                        <div class="card">
+                                        <div class="graphCard">
                                             <h4>Total Interest</h4>
                                             <div class="result-value"><a id="totalInterested">0.00 €</a></div>
                                         </div>
                                     </div>
                                     <div id="chart">
-                                        <canvas id="graphic" width="400" height="200"></canvas>
+                                        <canvas id="graph" width="400" height="200"></canvas>
                                     </div>
                                     
                                 </div>
                             </section>
                             <section style="overflow-x: auto">
-                                <table id="display" class="listaResultado">
+                                <table id="interestTable" class="tableList">
                                     <tr>
                                         <th>Months</th>
                                         <th>Interest of the Month</th>

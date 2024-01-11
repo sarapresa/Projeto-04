@@ -4,7 +4,7 @@ calculate.addEventListener("click", setValues)
 let borderColor1 = "rgb(217,79,92)"
 let backgroundColor1 = "rgba(217, 79, 92, 0.2)"
 
-const chartID = document.getElementById("graphic").getContext("2d")
+const chartID = document.getElementById("graph").getContext("2d")
 let graphic = new Chart(chartID, {
     type: "bar",
     data: {
@@ -42,10 +42,10 @@ function setValues() {
     // Converta o número de years em months
     let monthsTotais = years * 12 + months
 
-    calcular(initialValue, monthlyInvestment, annualInterest, monthsTotais, totalValue, investedValue, totalInterested)
+    calculator(initialValue, monthlyInvestment, annualInterest, monthsTotais, totalValue, investedValue, totalInterested)
 }
 
-function calcular(initialValue, monthlyInvestment, annualInterest, months, totalValue, investedValue, totalInterested) {
+function calculator(initialValue, monthlyInvestment, annualInterest, months, totalValue, investedValue, totalInterested) {
     let totalAmount = initialValue
     let totalInvested = initialValue
     let totalInterest = Number()
@@ -80,26 +80,26 @@ function calcular(initialValue, monthlyInvestment, annualInterest, months, total
 
         totalInterest += dividend
     }
-    totalValue.innerHTML = "€" + totalAmount.toFixed(2)
-    investedValue.innerHTML = "€" + totalInvested.toFixed(2)
-    totalInterested.innerHTML = "€" + totalInterest.toFixed(2)
+    totalValue.innerHTML = totalAmount.toFixed(2) + " €"
+    investedValue.innerHTML = totalInvested.toFixed(2) + " €"
+    totalInterested.innerHTML = totalInterest.toFixed(2) + " €"
 
-    lista()
-    grafico(totalAmountArr, months)
+    list()
+    graph(totalAmountArr, months)
 
-    function lista() {
-        let linha = 1
+    function list() {
+        let line = 1
 
         for (i = 0; i < months; i++) {
-            let display = document.getElementById("display")
+            let table = document.getElementById("interestTable")
 
-            let novaLinha = display.insertRow(linha)
+            let newLine = table.insertRow(line)
 
-            let cell1 = novaLinha.insertCell(0)
-            let cell2 = novaLinha.insertCell(1)
-            let cell3 = novaLinha.insertCell(2)
-            let cell4 = novaLinha.insertCell(3)
-            let cell5 = novaLinha.insertCell(4)
+            let cell1 = newLine.insertCell(0)
+            let cell2 = newLine.insertCell(1)
+            let cell3 = newLine.insertCell(2)
+            let cell4 = newLine.insertCell(3)
+            let cell5 = newLine.insertCell(4)
 
             cell1.innerHTML = i + 1
             cell2.innerHTML = dividendMonthArr[i]
@@ -107,11 +107,11 @@ function calcular(initialValue, monthlyInvestment, annualInterest, months, total
             cell4.innerHTML = totalInvestedArr[i]
             cell5.innerHTML = totalAmountArr[i]
 
-            linha++
+            line++
         }
     }
 }
-function grafico(totalAmountArr, months) {
+function graph(totalAmountArr, months) {
     let time = []
     for (i = -1; i < months; i++) {
         time[i] = i + 1
@@ -146,21 +146,21 @@ function grafico(totalAmountArr, months) {
 }
 
 document.getElementById("reset").addEventListener("click", function () {
-    grafico(0, 0)
+    graph(0, 0)
     resetTable(false)
     document.getElementById("initialValue").value = ""
     document.getElementById("monthlyInvestment").value = ""
     document.getElementById("annualInterest").value = ""
     document.getElementById("months").value = ""
-    document.getElementById("totalValue").innerText = "€0.00"
-    document.getElementById("investedValue").innerText = "€0.00"
-    document.getElementById("totalInterested").innerText = "€0.00"
+    document.getElementById("totalValue").innerText = "0.00 €"
+    document.getElementById("investedValue").innerText = "0.00 €"
+    document.getElementById("totalInterested").innerText = "0.00 €"
 })
 
-function resetTable(cond) {
-    let novoCalculo = cond
+function resetTable(bool) {
+    let newCalcultion = bool
 
-    document.getElementById("display").innerHTML = `
+    document.getElementById("interestTable").innerHTML = `
     <tr>
         <th>Months</th>
         <th>Interest of the Month</th>
@@ -169,8 +169,8 @@ function resetTable(cond) {
         <th>Total Accumulated</th>
     </tr>`
 
-    if (novoCalculo == false) {
-        document.getElementById("display").innerHTML += `
+    if (newCalcultion == false) {
+        document.getElementById("interestTable").innerHTML += `
         <tr style="background-color: white;">
             <td> 0 </td>
             <td> 0 </td>
@@ -185,7 +185,7 @@ function resetTable(cond) {
 document.getElementById("exportButton").addEventListener("click", exportData)
 
 function exportData() {
-    var exportOption = document.getElementById("exportOptions").value
+    var exportOption = document.getElementById("export").value
 
     if (exportOption === "csv") {
         exportToCSV()
@@ -199,10 +199,7 @@ function exportData() {
 document.getElementById("exportCSV").addEventListener("click", exportToCSV)
 
 function exportToCSV() {
-    // Get the table element
-    var table = document.getElementById("display")
-
-    // Create an empty CSV string
+    var table = document.getElementById("interestTable")
     var csv = ""
 
     // Iterate through table rows and cells
@@ -230,17 +227,12 @@ function exportToCSV() {
     document.body.removeChild(link)
 }
 
-// Add this code after the existing script
 document.getElementById("exportJSON").addEventListener("click", exportToJSON)
 
 function exportToJSON() {
-    // Get the table element
-    var table = document.getElementById("display")
-
-    // Create an array to hold JSON objects
+    var table = document.getElementById("interestTable")
     var jsonData = []
 
-    // Iterate through table rows and cells
     for (var i = 1; i < table.rows.length; i++) {
         var row = table.rows[i]
         var jsonObject = {
@@ -253,13 +245,9 @@ function exportToJSON() {
         jsonData.push(jsonObject)
     }
 
-    // Convert JSON array to JSON string
     var jsonString = JSON.stringify(jsonData, null, 2)
-
-    // Create a Blob with the JSON data
     var blob = new Blob([jsonString], { type: "application/json" })
 
-    // Create a link element to download the JSON file
     var link = document.createElement("a")
     link.href = window.URL.createObjectURL(blob)
     link.download = "Interest Data.json"
@@ -270,7 +258,7 @@ function exportToJSON() {
 }
 
 document.getElementById("exportButton").addEventListener("click", function () {
-    var element = document.getElementById("exportOptions")
+    var element = document.getElementById("export")
     var exportFormat = element.options[element.selectedIndex].value
 
     if (exportFormat === "pdf") {
@@ -280,8 +268,6 @@ document.getElementById("exportButton").addEventListener("click", function () {
 
 function exportToPDF() {
     var element = document.getElementById("CalculatorData")
-
-    // Set custom options, including page width and height
     var options = {
         margin: 1,
         filename: "Interest Data",
@@ -290,7 +276,6 @@ function exportToPDF() {
         jsPDF: { unit: "mm", format: "a1", orientation: "portrait" },
     }
 
-    // Export to PDF with custom options
     html2pdf(element, options)
 }
 
