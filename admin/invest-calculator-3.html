@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+            integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
         <title></title>
     </head>
     <body>
@@ -22,22 +28,79 @@
             <!-- End of Sidebar Section -->
 
             <!-- Main Content -->
-            <main>
+            <main id="CalculatorData">
                 <div class="user-settigns">
-                    <h2>Investment planning for a financial goal</h2>
-                    <p>
-                        Setting a goal to be achieved by the end of X years, in the case of an investment with reinforcements, the simulator must enable defining a value for the reinforcements and
-                        calculating the initial investment amount, or defining the initial value to determine the value of the monthly reinforcements.
-                    </p>
-                    <h2>Tempo Necessário para Atingir um Objetivo</h2>
-                    <label class="cal-initiala" for="goal">Objetivo Financeiro:<input class="cal-initialb" type="number" id="goal3" placeholder="Digite o objetivo financeiro" /></label>
+                    <h1>Compound Interest Calculator & <br> Investment Simulator with Monthly Reenforcement</h1>
+                    <p>Achieve your financial goals: set the initial investment to reach your target in X years or tailor monthly contributions according to your strategy.</p>
+                    <div>
+                        <div class="conteiner">
+                            <section>
+                                <div class="user-settings">
+                                    <div class="profile-information">
+                                        <label for="initialValue">Initial Value</label>
+                                        <input type="number" name="valorInicial" id="valorInicial" placeholder="0.00" />
 
-                    <label class="cal-initiala" for="pv">Valor Inicial (PV): <input class="cal-initialb" type="number" id="pv3" placeholder="Digite o valor inicial" /></label>
+                                        <label for="monthlyInvestment">Monthly Investment</label>
+                                        <input type="number" name="investimentoMensal" id="investimentoMensal" placeholder="0.00" />
 
-                    <label class="cal-initiala" for="rate">Taxa de Juros Anual (%): <input class="cal-initialb" type="number" id="rate3" placeholder="Digite a taxa de juros" /></label>
+                                        <label for="annualInterest">Monthly Interest Rate</label>
+                                        <input type="number" name="juros" id="juros" placeholder="0%" />
 
-                    <button class="cal3-button" onclick="thirdCalculator()">Calcular</button>
-                    <p class="cal3-p" id="result3" cal3-button>O resultado será exibido aqui.</p>
+                                        <label for="months">Value</label>
+                                        <input type="number" name="valorDesejado" id="valorDesejado" placeholder="0.00" />
+                                        
+                                    </div>
+                                    <button class="calculate" id="calculate">CALCULATE</button>
+                                    <button class="reset" id="reset">RESET</button>
+                                    <div class="export">
+                                        <select id="export">
+                                            <option value="pdf">PDF</option>
+                                            <option value="csv">CSV</option>
+                                            <option value="json">JSON</option>
+                                        </select>
+                                        <button class="calculate" id="exportButton">EXPORT</button>
+                                    </div>
+                                </div>
+                                <br>
+                                    <div class="graphContainer">
+                                        <div class="graphCard">
+                                            <h4>Amount</h4>
+                                            <div class="result-value"><a id="totalValue">0.00 €</a></div>
+                                        </div>
+                                        <div class="graphCard">
+                                            <h4>Amount Invested</h4>
+                                            <div class="result-value"><a id="investedValue">0.00 €</a></div>
+                                        </div>
+                                        <div class="graphCard">
+                                            <h4>Total Interest</h4>
+                                            <div class="result-value"><a id="totalInterested">0.00 €</a></div>
+                                        </div>
+                                    </div>
+                                    <div id="chart">
+                                        <canvas id="graph" width="400" height="200"></canvas>
+                                    </div>
+                                    
+                                </div>
+                            </section>
+                            <section style="overflow-x: auto">
+                                <table id="interestTable" class="tableList">
+                                    <tr>
+                                        <th>Months</th>
+                                        <th>Interest of the Month</th>
+                                        <th>Accumulated Interest</th>
+                                        <th>Total Invested</th>
+                                        <th>Total Accumulated</th>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </table>
+                            </section>
+                    </div>
                 </div>
             </main>
             <!-- End of Main Content -->
@@ -52,7 +115,7 @@
                     <div class="profile">
                         <div class="info">
                             <p>Hi, <b id="name"></b></p>
-                            <small class="text-muted">Admin</small>
+                            <small class="text-muted">User</small>
                         </div>
                         <div class="profile-photo">
                             <img src="images/profile.webp" id="profilePicture" alt="Profile Picture" />
@@ -65,19 +128,21 @@
                     <div class="logo">
                         <img src="images/profile.webp" />
                         <h2 id="bigName"></h2>
-                        <p>Admin</p>
+                        <p>User</p>
                     </div>
                 </div>
-                <label class="switch-container">
-                    <input type="checkbox" id="darkModeToggle" />
-                    <span class="slider"></span>
-                </label>
+
+                    <label class="switch-container">
+                        <input type="checkbox" id="darkModeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
-        <script src="js/calculators.js"></script>
+        <script src="js/calculator2.js"></script>
         <script src="js/orders.js"></script>
         <script src="js/main.js"></script>
-        <script type="module" src="js/firebase.js"></script>
+        <script type="module" src="firebase.js"></script>
         <script>
             window.currentPageId = "calculator-3-link"
         </script>

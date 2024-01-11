@@ -278,12 +278,3 @@ function exportToPDF() {
 
     html2pdf(element, options)
 }
-
-function thirdCalculator() {
-    const goal = parseFloat(document.getElementById("goal3").value)
-    const pv = parseFloat(document.getElementById("pv3").value)
-    const rate = parseFloat(document.getElementById("rate3").value)
-
-    const time = Math.log(goal / pv) / Math.log(1 + rate / 100)
-    document.getElementById("result3").innerHTML = "Serão necessários aproximadamente " + time.toFixed(2) + " anos para atingir o objetivo."
-}

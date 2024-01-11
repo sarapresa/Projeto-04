@@ -30,9 +30,9 @@
             <!-- Main Content -->
             <main id="CalculatorData">
                 <div class="user-settigns">
-                    <h1>Compound Interest Calculator</h1>
-                    <p class="cal1-p">Specifying a target to be reached at the end of X years to determine the amount that needs to be invested in the first case.</p>
-                    <div id="exportContent">
+                    <h1>Compound Interest Calculator & <br> Investment Simulator with Monthly Reenforcement</h1>
+                    <p>Achieve your financial goals: set the initial investment to reach your target in X years or tailor monthly contributions according to your strategy.</p>
+                    <div>
                         <div class="conteiner">
                             <section>
                                 <div class="user-settings">
@@ -102,7 +102,6 @@
                                     </tr>
                                 </table>
                             </section>
-                        </div>
                     </div>
                 </div>
             </main>
@@ -118,7 +117,7 @@
                     <div class="profile">
                         <div class="info">
                             <p>Hi, <b id="name"></b></p>
-                            <small class="text-muted">Admin</small>
+                            <small class="text-muted">User</small>
                         </div>
                         <div class="profile-photo">
                             <img src="images/profile.webp" id="profilePicture" alt="Profile Picture" />
@@ -131,7 +130,7 @@
                     <div class="logo">
                         <img src="images/profile.webp" />
                         <h2 id="bigName"></h2>
-                        <p>Admin</p>
+                        <p>User</p>
                     </div>
                 </div>
 
@@ -142,11 +141,10 @@
                 </div>
             </div>
         </div>
-
-        <script src="js/calculators.js"></script>
+        <script src="js/calculator1.js"></script>
         <script src="js/orders.js"></script>
         <script src="js/main.js"></script>
-        <script type="module" src="js/firebase.js"></script>
+        <script type="module" src="firebase.js"></script>
         <script>
             window.currentPageId = "calculator-1-link"
         </script>
