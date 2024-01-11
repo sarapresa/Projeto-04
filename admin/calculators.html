@@ -11,7 +11,6 @@
             integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
         <title></title>
     </head>
     <body>
@@ -29,87 +28,69 @@
             <!-- End of Sidebar Section -->
 
             <!-- Main Content -->
-            <main>
+            <main id="CalculatorData">
                 <div class="user-settigns">
                     <h1>Compound Interest Calculator</h1>
                     <p class="cal1-p">Specifying a target to be reached at the end of X years to determine the amount that needs to be invested in the first case.</p>
                     <div id="exportContent">
-                        <div class="divisao"></div>
                         <div class="conteiner">
-                            <section class="layout">
-                                <div class="entradas">
-                                    <label for="valorInicial">Valor inicial</label>
-                                    <div class="campo">
-                         
-                                        <div class="prefixo"><b>€</b></div>
-                                        <input type="number" name="valorInicial" id="valorInicial" placeholder="0.00" />
-                                    </div>
+                            <section>
+                                <div class="user-settings">
+                                    <div class="profile-information">
+                                        <label for="initialValue">Valor inicial</label>
+                                        <input type="number" name="initialValue" id="initialValue" placeholder="0.00" />
 
-                                    <label for="investimentoMensal">Investimento mensal</label>
-                                    <div class="campo">
-                                        <div class="prefixo"><b>€</b></div>
-                                        <input type="number" name="investimentoMensal" id="investimentoMensal" placeholder="0.00" />
-                                    </div>
+                                        <label for="monthlyInvestment">Investimento mensal</label>
+                                        <input type="number" name="monthlyInvestment" id="monthlyInvestment" placeholder="0.00" />
 
-                                    <label for="juros">Taxa de juros mensal</label>
-                                    <div class="campo">
-                                        <div class="prefixo"><b>%</b></div>
-                                        <input type="number" name="juros" id="juros" placeholder="0%" />
-                                    </div>
+                                        <label for="annualInterest">Taxa de juros mensal</label>
+                                        <input type="number" name="annualInterest" id="annualInterest" placeholder="0%" />
 
-                                    <label for="months">Months</label>
-                                    <div class="campo">
-                                        <div class="prefixo"><b>M</b></div>
+                                        <label for="months">Months</label>
                                         <input type="number" name="months" id="months" placeholder="0" />
-                                    </div>
-                                    <label for="years">Years</label>
-                                    <div class="campo">
-                                        <div class="prefixo"><b>A</b></div>
+                                        <label for="years">Years</label>
                                         <input type="number" name="years" id="years" placeholder="0" />
                                     </div>
-                                    <button class="botao" id="calculate"><b>CALCULAR</b></button>
-                                    <button class="botao" id="reset"><b>ANULAR</b></button>
-                                    <div class="export-dropdown">
-                                        <label for="exportOptions">Exportar como:</label>
+                                    <button class="calculate" id="calculate">CALCULATE</button>
+                                    <button class="reset" id="reset">RESET</button>
+                                    <div class="export">
                                         <select id="exportOptions">
+                                            <option value="pdf">PDF</option>
                                             <option value="csv">CSV</option>
                                             <option value="json">JSON</option>
-                                            <option value="pdf">PDF</option>
                                         </select>
-                                        <button class="botao2" id="exportButton"><b>EXPORTAR</b></button>
+                                        <button class="calculate" id="exportButton">EXPORT</button>
                                     </div>
-                                    <br />
                                 </div>
-                                <div class="divisao"></div>
-                                <div class="resultados">
-                                    <h2>Resultados</h2>
+                                <br>
                                     <div class="cards">
                                         <div class="card">
-                                            <h4>Valor total</h4>
-                                            <div class="valor-resultado"><b id="valorTotal">€0.00</b></div>
+                                            <h4>Amount</h4>
+                                            <div class="result-value"><a id="totalValue">0.00 €</a></div>
                                         </div>
                                         <div class="card">
-                                            <h4>Valor investido</h4>
-                                            <div class="valor-resultado"><b id="valorInvestido">€0.00</b></div>
+                                            <h4>Amount Invested</h4>
+                                            <div class="result-value"><a id="investedValue">0.00 €</a></div>
                                         </div>
                                         <div class="card">
-                                            <h4>Juros totais</h4>
-                                            <div class="valor-resultado"><b id="jurosTotais">€0.00</b></div>
+                                            <h4>Total Interest</h4>
+                                            <div class="result-value"><a id="totalInterested">0.00 €</a></div>
                                         </div>
                                     </div>
                                     <div id="chart">
                                         <canvas id="graphic" width="400" height="200"></canvas>
                                     </div>
+                                    
                                 </div>
                             </section>
                             <section style="overflow-x: auto">
                                 <table id="display" class="listaResultado">
                                     <tr>
-                                        <th class="table-th-1">Mês</th>
-                                        <th class="table-th-2">Juros do mês</th>
-                                        <th class="table-th-3">Juros acumulado</th>
-                                        <th class="table-th-4">Total investido</th>
-                                        <th class="table-th-5">Total acumulado</th>
+                                        <th>Months</th>
+                                        <th>Interest of the Month</th>
+                                        <th>Accumulated Interest</th>
+                                        <th>Total Invested</th>
+                                        <th>Total Accumulated</th>
                                     </tr>
                                     <tr>
                                         <td>0</td>
@@ -122,7 +103,6 @@
                             </section>
                         </div>
                     </div>
-                    <p class="cal1-resultado" id="resultado"></p>
                 </div>
             </main>
             <!-- End of Main Content -->
@@ -153,10 +133,12 @@
                         <p>Admin</p>
                     </div>
                 </div>
-                <label class="switch-container">
-                    <input type="checkbox" id="darkModeToggle" />
-                    <span class="slider"></span>
-                </label>
+
+                    <label class="switch-container">
+                        <input type="checkbox" id="darkModeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -166,309 +148,6 @@
         <script type="module" src="js/firebase.js"></script>
         <script>
             window.currentPageId = "calculator-1-link"
-        </script>
-        <script>
-            var calculate = document.getElementById("calculate")
-            calculate.addEventListener("click", setValues)
-
-            let borderColor1 = "rgb(217,79,92)"
-            let backgroundColor1 = "rgba(217, 79, 92, 0.2)"
-
-            const chartID = document.getElementById("graphic").getContext("2d")
-            let graphic = new Chart(chartID, {
-                type: "bar",
-                data: {
-                    labels: (months = ["Months"]),
-                    datasets: [
-                        {
-                            label: "Balance Accumulation",
-                            data: [0],
-                            backgroundColor: [backgroundColor1],
-                            borderColor: [borderColor1],
-                            borderWidth: 2,
-                            borderRadius: 15,
-                        },
-                    ],
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                        },
-                    },
-                },
-            })
-
-            function setValues() {
-                let valorInicial = Number(document.getElementById("valorInicial").value)
-                let investimentoMensal = Number(document.getElementById("investimentoMensal").value)
-                let jurosAnual = Number(document.getElementById("juros").value)
-                let months = Number(document.getElementById("months").value)
-                let years = Number(document.getElementById("years").value) // Adicionado
-                let valorTotal = document.getElementById("valorTotal")
-                let valorInvestido = document.getElementById("valorInvestido")
-                let jurosTotais = document.getElementById("jurosTotais")
-
-                // Converta o número de years em months
-                let monthsTotais = years * 12 + months
-
-                calcular(valorInicial, investimentoMensal, jurosAnual, monthsTotais, valorTotal, valorInvestido, jurosTotais)
-            }
-
-            function calcular(valorInicial, investimentoMensal, jurosAnual, months, valorTotal, valorInvestido, jurosTotais) {
-                let acumuloTotal = valorInicial
-                let totalInvestido = valorInicial
-                let totalJuros = Number()
-                let dividendo = Number()
-                let jurosAcumuladoArr = []
-                let acumuloTotalArr = []
-                let totalInvestidoArr = []
-                let dividendoMesArr = []
-                let jurosMensal = jurosAnual / 12 / 100
-
-                if (document.getElementById("months").value == "") {
-                    resetTable(false)
-                } else {
-                    resetTable(true)
-                }
-
-                for (i = 0; i < months; i++) {
-                    dividendo = acumuloTotal * jurosMensal
-                    dividendoMesArr[i] = dividendo.toFixed(2)
-
-                    if (jurosAcumuladoArr.length < 1) {
-                        jurosAcumuladoArr[i] = dividendo
-                    } else {
-                        jurosAcumuladoArr[i] = dividendo + jurosAcumuladoArr[i - 1]
-                    }
-
-                    acumuloTotal += dividendo + investimentoMensal
-                    acumuloTotalArr[i] = acumuloTotal.toFixed(2)
-
-                    totalInvestido += investimentoMensal
-                    totalInvestidoArr[i] = totalInvestido.toFixed(2)
-
-                    totalJuros += dividendo
-
-                    // listamonthsArr[i] = `Mes ${i} : ${acumuloTotal.toFixed(2)}`
-                }
-                valorTotal.innerHTML = "€" + acumuloTotal.toFixed(2)
-                valorInvestido.innerHTML = "€" + totalInvestido.toFixed(2)
-                jurosTotais.innerHTML = "€" + totalJuros.toFixed(2)
-
-                lista()
-                grafico(acumuloTotalArr, months)
-
-                function lista() {
-                    let linha = 1
-
-                    for (i = 0; i < months; i++) {
-                        let display = document.getElementById("display")
-
-                        let novaLinha = display.insertRow(linha)
-
-                        let cell1 = novaLinha.insertCell(0)
-                        let cell2 = novaLinha.insertCell(1)
-                        let cell3 = novaLinha.insertCell(2)
-                        let cell4 = novaLinha.insertCell(3)
-                        let cell5 = novaLinha.insertCell(4)
-
-                        cell1.innerHTML = i + 1
-                        cell2.innerHTML = dividendoMesArr[i]
-                        cell3.innerHTML = jurosAcumuladoArr[i].toFixed(2)
-                        cell4.innerHTML = totalInvestidoArr[i]
-                        cell5.innerHTML = acumuloTotalArr[i]
-
-                        linha++
-                    }
-                }
-            }
-            function grafico(acumuloTotalArr, months) {
-                let time = []
-                for (i = -1; i < months; i++) {
-                    time[i] = i + 1
-                }
-                if (time.length == 0) {
-                    time[0] = "Months"
-                }
-                graphic.destroy()
-                graphic = new Chart(chartID, {
-                    type: "bar",
-                    data: {
-                        labels: time,
-                        datasets: [
-                            {
-                                label: "Balance Accumulation",
-                                data: acumuloTotalArr,
-                                backgroundColor: [backgroundColor1],
-                                borderColor: [borderColor1],
-                                borderWidth: 2,
-                                borderRadius: 15,
-                            },
-                        ],
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                })
-            }
-
-            document.getElementById("reset").addEventListener("click", function () {
-                grafico(0, 0)
-                resetTable(false)
-                document.getElementById("valorInicial").value = ""
-                document.getElementById("investimentoMensal").value = ""
-                document.getElementById("juros").value = ""
-                document.getElementById("months").value = ""
-                document.getElementById("valorTotal").innerText = "€0.00"
-                document.getElementById("valorInvestido").innerText = "€0.00"
-                document.getElementById("jurosTotais").innerText = "€0.00"
-            })
-
-            function resetTable(cond) {
-                let novoCalculo = cond
-
-                document.getElementById("display").innerHTML = `
-    <tr>
-        <th class="table-th-1">Mês</th>
-        <th class="table-th-2">Juros do mês</th>
-        <th class="table-th-3">Juros acumulado</th>
-        <th class="table-th-4">Total investido</th>
-        <th class="table-th-5">Total acumulado</th>
-    </tr>`
-
-                if (novoCalculo == false) {
-                    document.getElementById("display").innerHTML += `
-        <tr style="background-color: white;">
-            <td> 0 </td>
-            <td> 0 </td>
-            <td> 0 </td>
-            <td> 0 </td>
-            <td> 0 </td>
-        </tr>
-        `
-                }
-            }
-
-            document.getElementById("exportButton").addEventListener("click", exportData)
-
-            function exportData() {
-                var exportOption = document.getElementById("exportOptions").value
-
-                if (exportOption === "csv") {
-                    exportToCSV()
-                } else if (exportOption === "json") {
-                    exportToJSON()
-                } else if (exportOption === "pdf") {
-                    exportToPDF()
-                }
-            }
-
-            // Restante do seu código permanece o mesmo...
-
-            // Add this code after the existing script
-            document.getElementById("exportCSV").addEventListener("click", exportToCSV)
-
-            function exportToCSV() {
-                // Get the table element
-                var table = document.getElementById("display")
-
-                // Create an empty CSV string
-                var csv = ""
-
-                // Iterate through table rows and cells
-                for (var i = 0; i < table.rows.length; i++) {
-                    var row = table.rows[i]
-                    for (var j = 0; j < row.cells.length; j++) {
-                        // Add cell value to the CSV string
-                        csv += row.cells[j].innerText + ","
-                    }
-                    // Add a new line after each row
-                    csv += "\n"
-                }
-
-                // Create a Blob with the CSV data
-                var blob = new Blob([csv], { type: "text/csv" })
-
-                // Create a link element to download the CSV file
-                var link = document.createElement("a")
-                link.href = window.URL.createObjectURL(blob)
-                link.download = "exported_data.csv"
-
-                // Append the link to the body and trigger the download
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-            }
-
-            // Add this code after the existing script
-            document.getElementById("exportJSON").addEventListener("click", exportToJSON)
-
-            function exportToJSON() {
-                // Get the table element
-                var table = document.getElementById("display")
-
-                // Create an array to hold JSON objects
-                var jsonData = []
-
-                // Iterate through table rows and cells
-                for (var i = 1; i < table.rows.length; i++) {
-                    var row = table.rows[i]
-                    var jsonObject = {
-                        Month: row.cells[0].innerText,
-                        "Juros do mês": row.cells[1].innerText,
-                        "Juros acumulado": row.cells[2].innerText,
-                        "Total investido": row.cells[3].innerText,
-                        "Total acumulado": row.cells[4].innerText,
-                    }
-                    jsonData.push(jsonObject)
-                }
-
-                // Convert JSON array to JSON string
-                var jsonString = JSON.stringify(jsonData, null, 2)
-
-                // Create a Blob with the JSON data
-                var blob = new Blob([jsonString], { type: "application/json" })
-
-                // Create a link element to download the JSON file
-                var link = document.createElement("a")
-                link.href = window.URL.createObjectURL(blob)
-                link.download = "exported_data.json"
-
-                // Append the link to the body and trigger the download
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-            }
-
-            document.getElementById("exportButton").addEventListener("click", function () {
-                var element = document.getElementById("exportOptions")
-                var exportFormat = element.options[element.selectedIndex].value
-
-                if (exportFormat === "pdf") {
-                    exportToPDF()
-                }
-            })
-
-            function exportToPDF() {
-                var element = document.getElementById("exportContent")
-
-                // Set custom options, including page width and height
-                var options = {
-                    margin: 10,
-                    filename: "exported_document",
-                    image: { type: "jpeg", quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: "mm", format: "a2", orientation: "portrait" },
-                }
-
-                // Export to PDF with custom options
-                html2pdf(element, options)
-            }
         </script>
     </body>
 </html>

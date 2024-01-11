@@ -164,6 +164,7 @@ aside .sidebar {
     width: 18vh;
     position: relative;
     top: 1.5rem;
+    left: 1.2rem;
     transition: all 0.3s ease;
 }
 
@@ -807,12 +808,18 @@ input:checked + .slider:before {
 
 /* User Settings Container */
 .user-settigns {
+    margin-left: 50px;
+    margin-right: 15px;
     background-color: var(--card-bg-light);
-    margin-top: 3.5rem;
+    margin-top: 49px;
     box-shadow: 0 0px 5px 0px #354b50bd;
     border-radius: var(--card-border-radius);
     transition: all 0.3s ease;
-    padding: 20px; /* Added padding for better spacing */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
 }
 
 /* User Settings Title */
@@ -837,6 +844,7 @@ main .user-settigns:hover {
 .user-settigns input[type="text"],
 .user-settigns input[type="email"],
 .user-settigns input[type="tel"],
+.user-settigns input[type="number"],
 .user-settigns textarea {
     width: 100%;
     padding: 10px;
@@ -851,6 +859,7 @@ main .user-settigns:hover {
 .user-settigns input[type="text"]:focus,
 .user-settigns input[type="email"]:focus,
 .user-settigns input[type="tel"]:focus,
+.user-settigns input[type="number"]:focus,
 .user-settigns textarea:focus {
     outline: none;
     border-color: #42bb95;
@@ -871,7 +880,8 @@ main .user-settigns:hover {
 }
 
 /* Save Button Styles */
-.user-settigns .save-button {
+.user-settigns .save-button,
+.calculate {
     padding: 13px 20px 12px;
     background-color: #42bb95;
     border-radius: 15px;
@@ -882,11 +892,59 @@ main .user-settigns:hover {
     margin-bottom: 24px;
 }
 
-.user-settigns .save-button:hover {
+.user-settigns .save-button:hover,
+.calculate:hover {
     cursor: pointer;
     border: 1.5px solid var(--button-hover-text);
     background-color: var(--button-hover-bg);
     color: var(--button-hover-text);
+}
+
+.user-settigns .reset {
+    padding: 13px 20px 12px;
+    background-color: #d94f5c;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.user-settigns .reset:hover {
+    cursor: pointer;
+    border: 1.5px solid #d94f5c;
+    background-color: var(--button-hover-bg);
+    color: #d94f5c;
+}
+
+.export {
+    position: relative;
+    float: right;
+}
+
+#exportOptions {
+    padding: 12px 20px 12px;
+    margin-right: 5px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 2px solid #677673;
+    background-color: var(--button-hover-bg);
+    color: var(--text);
+    cursor: pointer;
+}
+
+#exportOptions option {
+    padding: 15px;
+    font-size: 14px;
+    background-color: var(--button-hover-bg);
+    color: var(--text); /* Set text color */
+}
+
+/* Style the select when it's focused */
+#exportOptions:focus {
+    outline: none;
+    border-color: #42bb95;
 }
 
 /* Additional Styles for Specific Sections (you can customize as needed) */
@@ -917,102 +975,6 @@ main .user-settigns:hover {
     margin-left: 10px;
 }
 
-.cal1 {
-    margin-left: 40%;
-}
-
-input[type="number"] {
-    border: 2px solid black;
-    border-radius: 5px;
-}
-
-.button-cal1 {
-    color: white;
-    background-color: green;
-    border-radius: 5px;
-    margin-top: 20px;
-    padding: 10px;
-    padding-left: 62px;
-    padding-right: 62px;
-    font-size: larger;
-}
-
-.cal1-resultado {
-    font-size: larger;
-}
-
-.cal1-p {
-    font-size: larger;
-}
-
-.cal2-p {
-    font-size: larger;
-}
-
-.cal2-button {
-    color: white;
-    background-color: green;
-    border-radius: 5px;
-    padding: 15px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 100px;
-    font-size: large;
-}
-
-.cal-initiala {
-    font-size: large;
-}
-
-.cal-initialb {
-    padding: 5px;
-}
-
-.cal3-button {
-    color: white;
-    background-color: green;
-    border-radius: 5px;
-    padding: 10px;
-    padding-left: 100px;
-    padding-right: 100px;
-    margin-left: 100px;
-    font-size: large;
-}
-
-.cal3-p {
-    font-size: larger;
-}
-
-.table-th-1 {
-    background-color: var(--cor-primaria);
-    width: 5%;
-    border-top-left-radius: var(--radious-2);
-}
-.table-th-2,
-.table-th-3,
-.table-th-4,
-.table-th-5 {
-    width: 22.5%;
-    background-color: var(--cor-primaria);
-}
-
-.table-th-5 {
-    border-top-right-radius: var(--radious-2);
-}
-
-.resultados {
-    width: 67%;
-    margin-left: 3%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 3rem;
-}
-
-.resultados h2 {
-    font-size: 1.2rem;
-}
-
 .cards {
     width: 100%;
     display: flex;
@@ -1028,11 +990,7 @@ input[type="number"] {
     padding-top: 1rem;
 }
 
-.card h4 {
-    font-weight: 400;
-}
-
-.valor-resultado b {
+.result-value a {
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -1040,62 +998,8 @@ input[type="number"] {
 .listaResultado {
     margin: 3rem 0;
     width: 100%;
-    padding: 2rem;
+    padding: 0rem;
     text-align: center;
-}
-
-.listaResultado th {
-    font-size: 1.2rem;
-    height: 3rem;
-    color: white;
-    padding: 5px;
-}
-.listaResultado td {
-    border-collapse: collapse;
-    font-size: 1.2rem;
-    height: 3rem;
-}
-.listaResultado tr:nth-child(odd) {
-    background-color: rgba(24, 24, 24, 0.05);
-}
-.listaResultado tr:last-child td:nth-child(1) {
-    border-bottom-left-radius: var(--radious-2);
-}
-.listaResultado tr:last-child td:nth-child(5) {
-    border-bottom-right-radius: var(--radious-2);
-}
-
-.conteiner {
-    width: 95%;
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-.layout {
-    max-width: 100%;
-    display: flex;
-    margin-top: 2rem;
-    flex-direction: row;
-}
-
-.entradas {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    background-color: var(--cor-sections);
-    padding: 3rem;
-    border-radius: var(--radious-2);
-    box-shadow: var(--shadow);
-}
-
-.entradas input {
-    text-align: center;
-    height: 2.5rem;
-    font-size: 1.2rem;
-    border: 1px solid var(--input-color);
-    width: 85%;
-    border-top-right-radius: var(--radious-1);
-    border-bottom-right-radius: var(--radious-1);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -1107,136 +1011,12 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type="number"] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 label {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-}
-
-.campo {
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.prefixo {
-    width: 15%;
-    text-align: center;
-    background-color: var(--input-color);
-    height: 2.5rem;
-    border-top-left-radius: var(--radious-1);
-    border-bottom-left-radius: var(--radious-1);
-}
-
-.prefixo b {
-    position: relative;
-    top: 0.5rem;
-    font-weight: 400;
-}
-
-.botao {
-    background-color: var(--cor-primaria);
-    border: none;
-    color: white;
-    height: 3rem;
-    margin-top: 1rem;
-    border-radius: var(--radious-1);
-    position: relative;
-    z-index: 0;
-    transition: 0.3s;
-}
-
-.botao2 {
-    background-color: var(--cor-primaria);
-    border: none;
-    color: white;
-    height: 3rem;
-    width: 103px;
-    margin-top: 1rem;
-    border-radius: var(--radious-1);
-    position: relative;
-    z-index: 0;
-    transition: 0.3s;
-}
-
-.botao2:hover {
-    background-color: var(--cor-secundaria);
-}
-
-.botao2:hover b {
-    letter-spacing: 0.2rem;
-}
-
-.botao:hover {
-    background-color: var(--cor-secundaria);
-}
-
-.botao:hover b {
-    letter-spacing: 0.2rem;
-}
-
-/* .calcular::after {
-    content: "";
-    height: 3rem;
-    background-color: var(--cor-secundaria);
-    position: absolute;
-    width: 0;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    transition: .15s;
-}
-
-.calcular:hover::after {
-    width: 20rem;
-} */
-
-#reset b {
-    background-color: red;
-}
-
-.botao b {
-    z-index: 2;
-    position: relative;
-    font-size: 1.2rem;
-    transition: 0.3s;
-    padding: 13px 20px 12px;
-    background-color: green;
-    border-radius: 15px;
-    font-size: 17px;
-    color: white;
-}
-
-.botao2 b {
-    z-index: 2;
-    position: relative;
-    font-size: 1.2rem;
-    transition: 0.3s;
-    padding: 15px 20px 12px;
-    background-color: green;
-    border-radius: 15px;
-    font-size: 17px;
-    color: white;
-}
-
-.resultados {
-    width: 67%;
-    margin-left: 3%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: var(--cor-sections);
-    border-radius: var(--radious-2);
-    box-shadow: var(--shadow);
-    padding: 3rem;
-}
-
-.resultados h2 {
-    font-size: 1.2rem;
 }
 
 .cards {
