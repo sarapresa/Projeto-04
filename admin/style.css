@@ -70,6 +70,7 @@ img {
     display: block;
     width: 100%;
     object-fit: cover;
+    border-radius: 25px;
 }
 
 h1 {
@@ -454,6 +455,18 @@ main .recent-orders a {
     box-shadow: var(--box-shadow);
     cursor: pointer;
     transition: all 0.3s ease;
+}
+.right-section .image-profile {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: var(--card-bg-light);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 630px;
 }
 
 .right-section .user-profile:hover {
