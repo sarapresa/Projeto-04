@@ -6,11 +6,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
-            integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
         <title></title>
     </head>
     <body>
@@ -38,16 +33,16 @@
                                 <div class="user-settings">
                                     <div class="profile-information">
                                         <label for="initialValue">Initial Value</label>
-                                        <input type="number" name="valorInicial" id="valorInicial" placeholder="0.00" />
+                                        <input type="number" name="initialValue" id="initialValue" placeholder="0.00" />
 
                                         <label for="monthlyInvestment">Monthly Investment</label>
-                                        <input type="number" name="investimentoMensal" id="investimentoMensal" placeholder="0.00" />
+                                        <input type="number" name="monthlyInvestment" id="monthlyInvestment" placeholder="0.00" />
 
                                         <label for="annualInterest">Monthly Interest Rate</label>
-                                        <input type="number" name="juros" id="juros" placeholder="0%" />
+                                        <input type="number" name="annualInterest" id="annualInterest" placeholder="0%" />
 
-                                        <label for="months">Value</label>
-                                        <input type="number" name="valorDesejado" id="valorDesejado" placeholder="0.00" />
+                                        <label for="months">Target Value</label>
+                                        <input type="number" name="targetValue" id="targetValue" placeholder="0.00" />
                                         
                                     </div>
                                     <button class="calculate" id="calculate">CALCULATE</button>
@@ -58,7 +53,7 @@
                                             <option value="csv">CSV</option>
                                             <option value="json">JSON</option>
                                         </select>
-                                        <button class="calculate" id="exportButton">EXPORT</button>
+                                        <button class="exportBtn" id="exportButton">EXPORT</button>
                                     </div>
                                 </div>
                                 <br>
@@ -74,6 +69,10 @@
                                         <div class="graphCard">
                                             <h4>Total Interest</h4>
                                             <div class="result-value"><a id="totalInterested">0.00 €</a></div>
+                                        </div>
+                                        <div class="graphCard">
+                                            <h4>Time</h4>
+                                            <div class="result-value"><a id="years">0 Years</a></div>
                                         </div>
                                     </div>
                                     <div id="chart">
@@ -139,8 +138,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="js/calculator2.js"></script>
-        <script src="js/orders.js"></script>
         <script src="js/main.js"></script>
         <script type="module" src="firebase.js"></script>
         <script>

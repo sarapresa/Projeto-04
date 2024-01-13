@@ -1,8 +1,8 @@
-var calculate = document.getElementById("calculate")
+const calculate = document.getElementById("calculate")
 calculate.addEventListener("click", setValues)
 
-let borderColor1 = "rgb(217,79,92)"
-let backgroundColor1 = "rgba(217, 79, 92, 0.2)"
+const borderColor1 = "rgb(217,79,92)"
+const backgroundColor1 = "rgba(217, 79, 92, 0.2)"
 
 const chartID = document.getElementById("graph").getContext("2d")
 let graphic = new Chart(chartID, {
@@ -38,11 +38,9 @@ function setValues() {
     let totalValue = document.getElementById("totalValue")
     let investedValue = document.getElementById("investedValue")
     let totalInterested = document.getElementById("totalInterested")
+    let totalMonths = years * 12 + months
 
-    // Converta o número de years em months
-    let monthsTotais = years * 12 + months
-
-    calculator(initialValue, monthlyInvestment, annualInterest, monthsTotais, totalValue, investedValue, totalInterested)
+    calculator(initialValue, monthlyInvestment, annualInterest, totalMonths, totalValue, investedValue, totalInterested)
 }
 
 function calculator(initialValue, monthlyInvestment, annualInterest, months, totalValue, investedValue, totalInterested) {
@@ -80,6 +78,7 @@ function calculator(initialValue, monthlyInvestment, annualInterest, months, tot
 
         totalInterest += dividend
     }
+
     totalValue.innerHTML = totalAmount.toFixed(2) + " €"
     investedValue.innerHTML = totalInvested.toFixed(2) + " €"
     totalInterested.innerHTML = totalInterest.toFixed(2) + " €"
@@ -171,7 +170,7 @@ function resetTable(bool) {
 
     if (newCalcultion == false) {
         document.getElementById("interestTable").innerHTML += `
-        <tr style="background-color: white;">
+        <tr>
             <td> 0 </td>
             <td> 0 </td>
             <td> 0 </td>
@@ -182,93 +181,51 @@ function resetTable(bool) {
     }
 }
 
-document.getElementById("exportButton").addEventListener("click", exportData)
+document.getElementById("exportButton").addEventListener("click", handleExport)
 
-function exportData() {
-    var exportOption = document.getElementById("export").value
+function handleExport() {
+    const exportFormat = document.getElementById("export").value
 
-    if (exportOption === "csv") {
+    if (exportFormat === "csv") {
         exportToCSV()
-    } else if (exportOption === "json") {
+    } else if (exportFormat === "json") {
         exportToJSON()
-    } else if (exportOption === "pdf") {
+    } else if (exportFormat === "pdf") {
         exportToPDF()
     }
 }
 
-document.getElementById("exportCSV").addEventListener("click", exportToCSV)
-
 function exportToCSV() {
-    var table = document.getElementById("interestTable")
-    var csv = ""
+    const table = document.getElementById("interestTable")
+    const csvRows = Array.from(table.rows).map((row) =>
+        Array.from(row.cells)
+            .map((cell) => cell.innerText)
+            .join(",")
+    )
+    const csv = csvRows.join("\n")
 
-    // Iterate through table rows and cells
-    for (var i = 0; i < table.rows.length; i++) {
-        var row = table.rows[i]
-        for (var j = 0; j < row.cells.length; j++) {
-            // Add cell value to the CSV string
-            csv += row.cells[j].innerText + ","
-        }
-        // Add a new line after each row
-        csv += "\n"
-    }
-
-    // Create a Blob with the CSV data
-    var blob = new Blob([csv], { type: "text/csv" })
-
-    // Create a link element to download the CSV file
-    var link = document.createElement("a")
-    link.href = window.URL.createObjectURL(blob)
-    link.download = "Interest Table.csv"
-
-    // Append the link to the body and trigger the download
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    exportData(csv, "Interest Table.csv", "text/csv")
 }
 
-document.getElementById("exportJSON").addEventListener("click", exportToJSON)
-
 function exportToJSON() {
-    var table = document.getElementById("interestTable")
-    var jsonData = []
-
-    for (var i = 1; i < table.rows.length; i++) {
-        var row = table.rows[i]
-        var jsonObject = {
+    const table = document.getElementById("interestTable")
+    const jsonData = Array.from(table.rows)
+        .slice(1)
+        .map((row) => ({
             Months: row.cells[0].innerText,
             "Interest of the Month": row.cells[1].innerText,
             "Accumulated Interest": row.cells[2].innerText,
             "Total Invested": row.cells[3].innerText,
             "Total Accumulated": row.cells[4].innerText,
-        }
-        jsonData.push(jsonObject)
-    }
+        }))
 
-    var jsonString = JSON.stringify(jsonData, null, 2)
-    var blob = new Blob([jsonString], { type: "application/json" })
-
-    var link = document.createElement("a")
-    link.href = window.URL.createObjectURL(blob)
-    link.download = "Interest Data.json"
-
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    const jsonString = JSON.stringify(jsonData, null, 2)
+    exportData(jsonString, "Interest Data.json", "application/json")
 }
 
-document.getElementById("exportButton").addEventListener("click", function () {
-    var element = document.getElementById("export")
-    var exportFormat = element.options[element.selectedIndex].value
-
-    if (exportFormat === "pdf") {
-        exportToPDF()
-    }
-})
-
-function exportToPDF() {
-    var element = document.getElementById("CalculatorData")
-    var options = {
+async function exportToPDF() {
+    const element = document.getElementById("CalculatorData")
+    const options = {
         margin: 1,
         filename: "Interest Data",
         image: { type: "jpeg", quality: 1 },
@@ -276,5 +233,15 @@ function exportToPDF() {
         jsPDF: { unit: "mm", format: "a1", orientation: "portrait" },
     }
 
-    html2pdf(element, options)
+    await html2pdf(element, options)
+}
+
+function exportData(data, filename, type) {
+    const blob = new Blob([data], { type: type })
+    const link = document.createElement("a")
+    link.href = window.URL.createObjectURL(blob)
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
 }

@@ -918,6 +918,24 @@ main .user-settigns:hover {
     color: #d94f5c;
 }
 
+.user-settigns .exportBtn {
+    padding: 13px 20px 12px;
+    background-color: #df5816;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.user-settigns .exportBtn:hover {
+    cursor: pointer;
+    border: 1.5px solid #df5816;
+    background-color: var(--button-hover-bg);
+    color: #df5816;
+}
+
 .export {
     position: relative;
     float: right;

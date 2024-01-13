@@ -6,11 +6,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
-            integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
         <title></title>
     </head>
     <body>
@@ -60,7 +55,7 @@
                                             <option value="csv">CSV</option>
                                             <option value="json">JSON</option>
                                         </select>
-                                        <button class="calculate" id="exportButton">EXPORT</button>
+                                        <button class="exportBtn" id="exportButton">EXPORT</button>
                                     </div>
                                 </div>
                                 <br>
@@ -141,8 +136,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="js/calculator1.js"></script>
-        <script src="js/orders.js"></script>
         <script src="js/main.js"></script>
         <script type="module" src="firebase.js"></script>
         <script>
