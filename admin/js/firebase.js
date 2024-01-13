@@ -15,7 +15,6 @@ const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 const userCreds = JSON.parse(sessionStorage.getItem("user-creds"))
 const userInfoJSON = sessionStorage.getItem("user-info")
-console.log("userInfoJSON:", userInfoJSON)
 
 let userInfo
 
@@ -75,15 +74,11 @@ if (saveBtn) {
 }
 
 const CheckCred = () => {
-    console.log("Entering CheckCred function")
     const bigNameElement = document.getElementById("bigName")
-    console.log("bigNameElement:", bigNameElement)
 
     if (!sessionStorage.getItem("user-creds") || !userInfo) {
-        console.log("Redirecting to index.html")
         window.location.href = "../../index.html"
     } else {
-        console.log("userInfo:", userInfo)
         name.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
         bigName.innerText = `${userInfo.firstname + " " + userInfo.lastname}`
         document.title = `Smart Savings | ${userInfo.firstname + " " + userInfo.lastname}`
@@ -96,9 +91,10 @@ const CheckCred = () => {
 
 document.addEventListener("DOMContentLoaded", function () {
     CheckCred()
-
-    signoutBtn.addEventListener("click", function (event) {
-        event.preventDefault()
-        Signout()
-    })
+    if (signoutBtn) {
+        signoutBtn.addEventListener("click", function (event) {
+            event.preventDefault()
+            Signout()
+        })
+    }
 })
