@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         <title></title>
     </head>
     <body>
-        <!-- Sidebar Section -->
         <div class="container">
             <aside>
                 <div class="toggle">
@@ -20,9 +19,7 @@
                 </div>
                 <div id="sidebar-container"></div>
             </aside>
-            <!-- End of Sidebar Section -->
 
-            <!-- Main Content -->
             <main id="CalculatorData">
                 <div class="user-settigns">
                     <h1>Compound Interest Calculator & <br> Investment Simulator with Monthly Reenforcement</h1>
@@ -41,9 +38,11 @@
                                         <label for="annualInterest">Monthly Interest Rate</label>
                                         <input type="number" name="annualInterest" id="annualInterest" placeholder="0%" />
 
-                                        <label for="months">Target Value</label>
-                                        <input type="number" name="targetValue" id="targetValue" placeholder="0.00" />
+                                        <label for="months">Months</label>
+                                        <input type="number" name="months" id="months" placeholder="0" />
                                         
+                                        <label for="years">Years</label>
+                                        <input type="number" name="years" id="years" placeholder="0" />
                                     </div>
                                     <button class="calculate" id="calculate">CALCULATE</button>
                                     <button class="reset" id="reset">RESET</button>
@@ -69,10 +68,6 @@
                                         <div class="graphCard">
                                             <h4>Total Interest</h4>
                                             <div class="result-value"><a id="totalInterested">0.00 €</a></div>
-                                        </div>
-                                        <div class="graphCard">
-                                            <h4>Time</h4>
-                                            <div class="result-value"><a id="years">0 Years</a></div>
                                         </div>
                                     </div>
                                     <div id="chart">
@@ -102,9 +97,7 @@
                     </div>
                 </div>
             </main>
-            <!-- End of Main Content -->
 
-            <!-- Right Section -->
             <div class="right-section">
                 <div class="nav">
                     <button id="menu-btn">
@@ -121,7 +114,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Nav -->
 
                 <div class="user-profile">
                     <div class="logo">
@@ -135,15 +127,17 @@
                         <input type="checkbox" id="darkModeToggle" />
                         <span class="slider"></span>
                     </label>
+                    
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="js/calculator2.js"></script>
-        <script src="js/main.js"></script>
-        <script type="module" src="firebase.js"></script>
-        <script>
-            window.currentPageId = "calculator-3-link"
-        </script>
+        
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="js/calculator1.js"></script>
+        <script src="js/main.js"></script>
+        <script type="module" src="js/firebase.js"></script>
+        <script>
+            window.currentPageId = "calculator-1-link"
+        </script>
 </html>

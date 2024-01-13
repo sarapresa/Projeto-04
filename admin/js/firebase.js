@@ -63,13 +63,16 @@ const UpdateFirebase = () => {
         .then(() => {
             console.log("Data updated in Firebase")
             updatePageElements(updatedUserInfo)
+            sessionStorage.setItem("user-info", JSON.stringify(updatedUserInfo))
         })
         .catch((error) => {
             console.error("Error updating data in Firebase:", error)
         })
 }
 
-saveBtn.addEventListener("click", () => UpdateFirebase(db))
+if (saveBtn) {
+    saveBtn.addEventListener("click", () => UpdateFirebase(db))
+}
 
 const CheckCred = () => {
     console.log("Entering CheckCred function")
@@ -93,6 +96,7 @@ const CheckCred = () => {
 
 document.addEventListener("DOMContentLoaded", function () {
     CheckCred()
+
     signoutBtn.addEventListener("click", function (event) {
         event.preventDefault()
         Signout()

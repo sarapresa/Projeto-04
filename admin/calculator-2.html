@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         <title></title>
     </head>
     <body>
-        <!-- Sidebar Section -->
         <div class="container">
             <aside>
                 <div class="toggle">
@@ -20,13 +19,11 @@
                 </div>
                 <div id="sidebar-container"></div>
             </aside>
-            <!-- End of Sidebar Section -->
-
-            <!-- Main Content -->
+            
             <main id="CalculatorData">
                 <div class="user-settigns">
-                    <h1>Compound Interest Calculator & <br> Investment Simulator with Monthly Reenforcement</h1>
-                    <p>Achieve your financial goals: set the initial investment to reach your target in X years or tailor monthly contributions according to your strategy.</p>
+                    <h1>Investment Planner for a Financial Goal</h1>
+                    <p>Customize parameters to your preference and determine the optimal number of years to maintain your investments until reaching the final goal.</p>
                     <div>
                         <div class="conteiner">
                             <section>
@@ -41,11 +38,8 @@
                                         <label for="annualInterest">Monthly Interest Rate</label>
                                         <input type="number" name="annualInterest" id="annualInterest" placeholder="0%" />
 
-                                        <label for="months">Months</label>
-                                        <input type="number" name="months" id="months" placeholder="0" />
-                                        
-                                        <label for="years">Years</label>
-                                        <input type="number" name="years" id="years" placeholder="0" />
+                                        <label for="months">Target Value</label>
+                                        <input type="number" name="targetValue" id="targetValue" placeholder="0.00" />
                                     </div>
                                     <button class="calculate" id="calculate">CALCULATE</button>
                                     <button class="reset" id="reset">RESET</button>
@@ -59,50 +53,51 @@
                                     </div>
                                 </div>
                                 <br>
-                                    <div class="graphContainer">
-                                        <div class="graphCard">
-                                            <h4>Amount</h4>
-                                            <div class="result-value"><a id="totalValue">0.00 €</a></div>
-                                        </div>
-                                        <div class="graphCard">
-                                            <h4>Amount Invested</h4>
-                                            <div class="result-value"><a id="investedValue">0.00 €</a></div>
-                                        </div>
-                                        <div class="graphCard">
-                                            <h4>Total Interest</h4>
-                                            <div class="result-value"><a id="totalInterested">0.00 €</a></div>
-                                        </div>
+                                <div class="graphContainer">
+                                    <div class="graphCard">
+                                        <h4>Amount</h4>
+                                        <div class="result-value"><a id="totalValue">0.00 €</a></div>
                                     </div>
-                                    <div id="chart">
-                                        <canvas id="graph" width="400" height="200"></canvas>
+                                    <div class="graphCard">
+                                        <h4>Amount Invested</h4>
+                                        <div class="result-value"><a id="investedValue">0.00 €</a></div>
                                     </div>
-                                    
+                                    <div class="graphCard">
+                                        <h4>Total Interest</h4>
+                                        <div class="result-value"><a id="totalInterested">0.00 €</a></div>
+                                    </div>
+                                    <div class="graphCard">
+                                        <h4>Time</h4>
+                                        <div class="result-value"><a id="years">0 Years</a></div>
+                                    </div>
                                 </div>
-                            </section>
-                            <section style="overflow-x: auto">
-                                <table id="interestTable" class="tableList">
-                                    <tr>
-                                        <th>Months</th>
-                                        <th>Interest of the Month</th>
-                                        <th>Accumulated Interest</th>
-                                        <th>Total Invested</th>
-                                        <th>Total Accumulated</th>
-                                    </tr>
-                                    <tr>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                    </tr>
-                                </table>
-                            </section>
+                                <div id="chart">
+                                    <canvas id="graph" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                        </section>
+                        <section style="overflow-x: auto">
+                            <table id="interestTable" class="tableList">
+                                <tr>
+                                    <th>Months</th>
+                                    <th>Interest of the Month</th>
+                                    <th>Accumulated Interest</th>
+                                    <th>Total Invested</th>
+                                    <th>Total Accumulated</th>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+                        </section>
                     </div>
                 </div>
             </main>
-            <!-- End of Main Content -->
-
-            <!-- Right Section -->
+            
             <div class="right-section">
                 <div class="nav">
                     <button id="menu-btn">
@@ -119,8 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Nav -->
-
+                
                 <div class="user-profile">
                     <div class="logo">
                         <img src="images/profile.webp" />
@@ -129,19 +123,18 @@
                     </div>
                 </div>
 
-                    <label class="switch-container">
-                        <input type="checkbox" id="darkModeToggle" />
-                        <span class="slider"></span>
-                    </label>
-                </div>
+                <label class="switch-container">
+                    <input type="checkbox" id="darkModeToggle" />
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="js/calculator1.js"></script>
-        <script src="js/main.js"></script>
-        <script type="module" src="firebase.js"></script>
-        <script>
-            window.currentPageId = "calculator-1-link"
-        </script>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/calculator2.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script>
+        window.currentPageId = "calculator-2-link"
+    </script>
 </html>
